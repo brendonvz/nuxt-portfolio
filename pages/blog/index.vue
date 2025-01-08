@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-	const { data: posts } = await useAsyncData('posts', () =>
-		queryContent('/blog').find()
-	)
+const { data: posts } = await useAsyncData('posts', () =>
+  queryContent('/blog').find()
+)
 </script>
