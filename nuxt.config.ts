@@ -40,9 +40,17 @@ export default defineNuxtConfig({
 		"@nuxtjs/seo",
 	],
 
+	site: {
+		url: "https://brendonvanzanten.com",
+		name: "Brendon van Zanten",
+		description: "Full Stack Web Developer specializing in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
+		defaultLocale: "en",
+	},
+
 	app: {
 		head: {
 			title: "Brendon van Zanten - Full Stack Web Developer",
+			titleTemplate: "%s",
 			link: [
 				{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
 				{
@@ -77,7 +85,9 @@ export default defineNuxtConfig({
 	},
 
 	runtimeConfig: {
-		githubToken: process.env.GITHUB_TOKEN,
+		server: {
+			githubToken: process.env.GITHUB_TOKEN,
+		},
 		public: {
 			siteUrl: "https://brendonvanzanten.com",
 			siteName: "Brendon van Zanten",

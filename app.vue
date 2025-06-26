@@ -1,9 +1,9 @@
 <template>
   <main class="mx-auto w-full max-w-7xl px-8 pb-8">
     <SiteHeader />
-    <ColorModeToggle />
     <NuxtPage />
   </main>
+  <ColorModeToggle />
 </template>
 
 <script setup>

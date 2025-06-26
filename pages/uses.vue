@@ -74,7 +74,7 @@ import { gsap } from "gsap";
 
 // SEO
 useSeoMeta({
-  title: "Uses - Brendon van Zanten",
+  title: "Brendon van Zanten | Uses",
   description:
     "Tools, software, and hardware I use for web development. My development setup, favorite VS Code extensions, and productivity tools.",
   keywords:

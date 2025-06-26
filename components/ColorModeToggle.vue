@@ -1,7 +1,10 @@
 <template>
-  <div class="fixed bottom-6 right-6">
+  <div
+    class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50"
+    :class="{ 'left-auto right-6 transform-none': isLargeScreen }"
+  >
     <button
-      class="flex items-center bg-[color:var(--element-background)] rounded-full p-2 shadow-lg relative"
+      class="flex items-center bg-[color:var(--element-background)] rounded-full p-2 shadow-xl hover:shadow-2xl transition-shadow duration-300 relative"
       @click="toggleColorMode"
     >
       <!-- Sliding bubble background -->
@@ -45,6 +48,7 @@ const sunRef = ref(null);
 const moonRef = ref(null);
 const bubblePosition = ref(0);
 const bubbleWidth = ref(0);
+const isLargeScreen = ref(false);
 
 const toggleColorMode = () => {
   colorMode.preference = isDark.value ? "light" : "dark";
@@ -70,9 +74,18 @@ const updateBubble = () => {
   }
 };
 
+const checkScreenSize = () => {
+  isLargeScreen.value = window.innerWidth >= 1152;
+};
+
 onMounted(async () => {
   await nextTick();
   updateBubble();
+
+  if (process.client) {
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+  }
 });
 
 watch(isDark, async () => {

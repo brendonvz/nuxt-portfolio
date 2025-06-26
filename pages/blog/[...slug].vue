@@ -41,7 +41,7 @@ const { data } = await useAsyncData(`content-${path}`, () =>
 
 // SEO
 useSeoMeta({
-  title: () => `${data.value?.title} - Brendon van Zanten`,
+  title: () => `Brendon van Zanten | ${data.value?.title}`,
   description: () =>
     data.value?.description ||
     `Read "${data.value?.title}" on Brendon van Zanten's blog. Web development insights and tutorials.`,

@@ -79,7 +79,7 @@
 
     <!-- LinkedIn Section -->
     <section
-      class="@container/section linkedin-section flex bg-[#0077b5] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item 6xl:aspect-square"
+      class="@container/section linkedin-section flex bg-[#0077b5] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item min-h-48 md:aspect-auto xl:aspect-auto 6xl:aspect-square"
     >
       <a
         href="https://ca.linkedin.com/in/brendon-van-zanten-13121559"
@@ -185,7 +185,7 @@
 
     <!-- Instagram Section -->
     <section
-      class="@container/section instagram-section flex bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item 6xl:aspect-square"
+      class="@container/section instagram-section flex bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item min-h-48 md:aspect-auto xl:aspect-auto 6xl:aspect-square"
     >
       <a
         href="https://www.instagram.com/brendonvz/"
@@ -200,7 +200,7 @@
 
     <!-- Contact Section -->
     <section
-      class="@container/section contact-section flex bg-[#2563eb] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item 6xl:aspect-square"
+      class="@container/section contact-section flex bg-[#2563eb] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item min-h-48 md:aspect-auto xl:aspect-auto 6xl:aspect-square"
     >
       <a
         href="mailto:brendon.vanzanten@gmail.com"
@@ -219,7 +219,7 @@ import { gsap } from "gsap";
 
 // SEO
 useSeoMeta({
-  title: "Portfolio - Brendon van Zanten",
+  title: "Brendon van Zanten | Home",
   description:
     "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. View my work and get in touch.",
   keywords:

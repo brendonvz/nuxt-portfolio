@@ -17,7 +17,7 @@ import { gsap } from "gsap";
 
 // SEO
 useSeoMeta({
-  title: "Blog - Brendon van Zanten",
+  title: "Brendon van Zanten | Blog",
   description:
     "Web development insights, tutorials, and thoughts from a full stack developer. Learn about Vue.js, Nuxt.js, WordPress, and modern web technologies.",
   keywords:
