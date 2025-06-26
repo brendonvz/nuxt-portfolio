@@ -35,9 +35,9 @@ import { gsap } from "gsap";
 
 const { path } = useRoute();
 
-const { data } = await useAsyncData(`content-${path}`, () => {
-  return queryContent().where({ _path: path }).findOne();
-});
+const { data } = await useAsyncData(`content-${path}`, () =>
+  queryContent().where({ _path: path }).findOne()
+);
 
 // SEO
 useSeoMeta({

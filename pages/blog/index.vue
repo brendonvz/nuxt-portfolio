@@ -2,6 +2,7 @@
   <div class="py-16">
     <h1 class="text-4xl text-center font-bold">Blog</h1>
   </div>
+
   <div
     ref="postContainer"
     class="w-full grid grid-cols-12 2xl:auto-rows-fr gap-4"

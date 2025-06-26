@@ -3,21 +3,17 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
 	vite: {
 		plugins: [tailwindcss()],
-		build: {
-			rollupOptions: {
-				output: {
-					manualChunks: {
-						vendor: ["vue", "vue-router"],
-						gsap: ["gsap"],
-					},
-				},
-			},
-		},
+		server: {
+			watch: {
+				usePolling: false,
+				interval: 1000,
+				ignored: ['**/node_modules/**', '**/.git/**']
+			}
+		}
 	},
 
 	// Performance optimizations
 	experimental: {
-		payloadExtraction: false,
 		viewTransition: true,
 	},
 
@@ -28,7 +24,6 @@ export default defineNuxtConfig({
 
 	modules: [
 		"@nuxt/content",
-		"@nuxt/image",
 		"@vueuse/nuxt",
 		"nuxt-icon",
 		"@nuxtjs/apollo",
@@ -93,30 +88,11 @@ export default defineNuxtConfig({
 		storageKey: "nuxt-color-mode",
 	},
 
-	// Image optimization
-	image: {
-		quality: 80,
-		format: ["webp", "avif", "jpeg"],
-		screens: {
-			xs: 320,
-			sm: 640,
-			md: 768,
-			lg: 1024,
-			xl: 1280,
-			xxl: 1536,
-		},
-	},
-
 	// CSS optimization
 	css: ["~/assets/css/main.css"],
 
 	// Build optimizations
 	build: {
 		transpile: ["gsap"],
-	},
-
-	// Performance features
-	features: {
-		inlineStyles: false, // Disable inline styles for better caching
 	},
 });

@@ -34,13 +34,10 @@
     <section
       class="@container/section profilepic-section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item 6xl:aspect-square"
     >
-      <NuxtImg
+      <img
         src="/images/profilepic.png"
         alt="Brendon van Zanten profile picture"
         class="w-full h-full object-cover rounded-4xl"
-        loading="eager"
-        sizes="sm:300px md:400px lg:500px"
-        format="webp"
       />
     </section>
 
@@ -66,7 +63,7 @@
           <li>Website Maintenance & Hosting</li>
         </ul>
         <div class="flex justify-center mt-6">
-          <NuxtImg
+          <img
             src="/images/laptop-coding.png"
             alt="Laptop with code"
             class="w-40 object-contain transition-transform duration-300 hover:scale-120 hover:rotate-5 filter grayscale-50 brightness-97"
@@ -75,9 +72,6 @@
               backface-visibility: hidden;
               -webkit-backface-visibility: hidden;
             "
-            loading="lazy"
-            sizes="160px"
-            format="webp"
           />
         </div>
       </div>
