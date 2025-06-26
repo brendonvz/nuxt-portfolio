@@ -1,8 +1,28 @@
 <template>
-  <div class="flex flex-col min-h-screen">
+  <main class="mx-auto w-full max-w-7xl px-8 pb-8">
     <SiteHeader />
-    <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 grow items-start w-full">
-      <NuxtPage />
-    </main>
-  </div>
+    <ColorModeToggle />
+    <NuxtPage />
+  </main>
 </template>
+
+<script setup>
+// Preload critical resources
+useHead({
+  link: [
+    { rel: "preconnect", href: "https://fonts.googleapis.com" },
+    { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
+    { rel: "dns-prefetch", href: "https://api.github.com" },
+  ],
+});
+
+// Register service worker for caching
+if (process.client && "serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/sw.js")
+    .then(() => console.log("Service Worker registered"))
+    .catch((error) =>
+      console.log("Service Worker registration failed:", error)
+    );
+}
+</script>

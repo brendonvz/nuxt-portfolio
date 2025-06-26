@@ -1,33 +1,122 @@
-// nuxt.config.ts
+import tailwindcss from "@tailwindcss/vite";
+
 export default defineNuxtConfig({
+	vite: {
+		plugins: [tailwindcss()],
+		build: {
+			rollupOptions: {
+				output: {
+					manualChunks: {
+						vendor: ["vue", "vue-router"],
+						gsap: ["gsap"],
+					},
+				},
+			},
+		},
+	},
 
-  modules: [
-    '@nuxt/content',
-    '@nuxtjs/tailwindcss',
-    'nuxt-icon',
-    '@nuxtjs/apollo'
-  ],
+	// Performance optimizations
+	experimental: {
+		payloadExtraction: false,
+		viewTransition: true,
+	},
 
-	css: [
-    '~/assets/css/main.css',
-  ],
+	nitro: {
+		compressPublicAssets: true,
+		minify: true,
+	},
 
-  tailwindcss: {
-    configPath: 'tailwind.config.js',
-  },
+	modules: [
+		"@nuxt/content",
+		"@nuxt/image",
+		"@vueuse/nuxt",
+		"nuxt-icon",
+		"@nuxtjs/apollo",
+		"@nuxtjs/color-mode",
+		"@nuxtjs/seo",
+	],
 
-  apollo: {
-    clients: {
-      default: {
-				tokenName: 'github-token',
-        httpEndpoint: 'https://api.github.com/graphql', // GitHub GraphQL API
-      },
-    },
-  },
+	app: {
+		head: {
+			title: "Brendon van Zanten - Full Stack Web Developer",
+			link: [
+				{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+				{
+					rel: "apple-touch-icon",
+					sizes: "180x180",
+					href: "/apple-touch-icon.png",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					sizes: "32x32",
+					href: "/favicon-32x32.png",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					sizes: "16x16",
+					href: "/favicon-16x16.png",
+				},
+				{ rel: "manifest", href: "/site.webmanifest" },
+			],
+		},
+	},
 
-  runtimeConfig: {
-		githubToken: process.env.GITHUB_TOKEN
-  },
+	apollo: {
+		clients: {
+			default: {
+				tokenName: "github-token",
+				httpEndpoint: "https://api.github.com/graphql", // GitHub GraphQL API
+			},
+		},
+	},
 
-  compatibilityDate: '2025-01-08',
+	runtimeConfig: {
+		public: {
+			siteUrl: "https://brendonvanzanten.com",
+			siteName: "Brendon van Zanten",
+			siteDescription:
+				"Full Stack Web Developer specializing in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
+			language: "en",
+		},
+		githubToken: process.env.GITHUB_TOKEN,
+	},
+
+	compatibilityDate: "2025-01-08",
+
+	colorMode: {
+		classSuffix: "",
+		fallback: "light",
+		dataValue: "theme",
+		preference: "system",
+		storageKey: "nuxt-color-mode",
+	},
+
+	// Image optimization
+	image: {
+		quality: 80,
+		format: ["webp", "avif", "jpeg"],
+		screens: {
+			xs: 320,
+			sm: 640,
+			md: 768,
+			lg: 1024,
+			xl: 1280,
+			xxl: 1536,
+		},
+	},
+
+	// CSS optimization
+	css: ["~/assets/css/main.css"],
+
+	// Build optimizations
+	build: {
+		transpile: ["gsap"],
+	},
+
+	// Performance features
+	features: {
+		inlineStyles: false, // Disable inline styles for better caching
+	},
 });

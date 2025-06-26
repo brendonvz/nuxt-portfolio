@@ -1,12 +1,204 @@
-.bento-item {
-  border: 2px solid #ccc; /* Light gray border */
-  border-radius: 8px; /* Rounded corners */
-  padding: 16px; /* Inner padding */
-  background-color: #fff; /* White background */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Nunito+Sans:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		font-family: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont,
+			"Segoe UI", Roboto, sans-serif;
+		--color-white: #ffffff;
+		--color-black: #000000;
+		--color-dark: #1a1a1a;
+		--color-lightblue: #ebf1f4;
+		--color-darkblue: #23272f;
+		--color-darkgray: #1c1c1c;
+		--color-red: #d91200;
+
+		--background: var(--color-lightblue);
+		--foreground: var(--color-dark);
+
+		--element-background: var(--color-white);
+		--element-text: var(--color-dark);
+
+		--element-active-background: var(--color-lightblue);
+		--element-text-active: var(--color-dark);
+
+		--border-color: var(--color-dark);
+	}
+
+	.dark {
+		--background: var(--color-darkblue);
+		--foreground: var(--color-white);
+		--element-background: var(--color-darkgray);
+		--element-text: var(--color-white);
+
+		--element-active-background: var(--color-darkblue);
+		--element-text-active: var(--color-white);
+
+		--border-color: var(--color-black);
+	}
+
+	/* Heading fonts */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+			"Segoe UI", Roboto, sans-serif;
+		font-weight: 600;
+	}
+
+	/* Body text fonts */
+	p,
+	li,
+	blockquote,
+	.prose {
+		font-family: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont,
+			"Segoe UI", Roboto, sans-serif;
+	}
+
+	/* Red tags use Inter font */
+	.bg-\[color\:var\(--color-red\)\] {
+		font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+			"Segoe UI", Roboto, sans-serif;
+	}
+
+	/* Smaller bullets for lists */
+	ul.list-disc li::marker {
+		font-size: 0.75rem;
+	}
+
+	/* Indent wrapped lines to align with first line text */
+	ul.list-disc li {
+		padding-left: 1rem;
+		text-indent: -1rem;
+	}
+
+	/* Ensure section hover effects work */
+	.section-item-scale:hover {
+		transform: scale(1.01) !important;
+	}
+
+	.section-item-scale {
+		transition: transform 0.1s ease !important;
+		transform-origin: center !important;
+	}
 }
 
-.bento-item:hover {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+/* Add this to ensure the body background changes */
+body {
+	background-color: var(--background);
+	color: var(--foreground);
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@font-face {
+	font-family: "Inter";
+	src: url("~/assets/fonts/InterVariable.woff2") format("woff2");
+	font-display: swap;
+	font-weight: 100 900;
+}
+
+.section-item {
+	opacity: 0;
+}
+
+.grid-container {
+	visibility: hidden;
+}
+
+/* Hide the first h1 in blog post content since we show it above the section */
+.prose h1:first-child {
+	display: none;
+}
+
+/* Dark mode prose text styling */
+.dark .prose {
+	color: var(--foreground);
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+	color: var(--foreground);
+}
+
+.dark .prose p,
+.dark .prose li,
+.dark .prose blockquote {
+	color: var(--foreground);
+}
+
+.dark .prose strong {
+	color: var(--foreground);
+}
+
+.dark .prose code {
+	color: var(--foreground);
+}
+
+.dark .prose a {
+	color: var(--foreground);
+}
+
+.prose p:first-of-type {
+	margin-top: 0;
+}
+
+@media (max-width: 1152px) {
+	.about-section {
+		order: 1;
+	}
+	.profilepic-section {
+		order: 2;
+	}
+	.experience-section {
+		order: 4;
+	}
+	.services-section {
+		order: 5;
+	}
+	.linkedin-section {
+		order: 3;
+	}
+	.instagram-section {
+		order: 6;
+	}
+	.contact-section {
+		order: 7;
+	}
+}
+
+/* Mobile reordering - only when sections actually stack (container-based) */
+@media (max-width: 639px) {
+	.about-section {
+		order: 1;
+	}
+	.profilepic-section {
+		order: 2;
+	}
+	.experience-section {
+		order: 3;
+	}
+	.services-section {
+		order: 4;
+	}
+	.linkedin-section {
+		order: 5;
+	}
+	.instagram-section {
+		order: 6;
+	}
+	.contact-section {
+		order: 7;
+	}
 }
