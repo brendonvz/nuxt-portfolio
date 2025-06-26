@@ -131,19 +131,7 @@
             >
           </div>
 
-          <div class="flex justify-between items-start">
-            <div>
-              <h4 class="text-lg font-semibold">Full Stack Web Developer</h4>
-              <p class="text-[color:var(--foreground)] opacity-80">
-                Symetric Productions
-              </p>
-            </div>
-            <span class="text-[color:var(--foreground)] opacity-80"
-              >2015 - 2022</span
-            >
-          </div>
-
-          <div class="flex justify-between items-start">
+					<div class="flex justify-between items-start">
             <div>
               <h4 class="text-lg font-semibold">
                 Greenhouse Operations Technician
@@ -154,6 +142,18 @@
             </div>
             <span class="text-[color:var(--foreground)] opacity-80"
               >2022 - 2023</span
+            >
+          </div>
+
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-lg font-semibold">Full Stack Web Developer</h4>
+              <p class="text-[color:var(--foreground)] opacity-80">
+                Symetric Productions
+              </p>
+            </div>
+            <span class="text-[color:var(--foreground)] opacity-80"
+              >2015 - 2022</span
             >
           </div>
         </div>
