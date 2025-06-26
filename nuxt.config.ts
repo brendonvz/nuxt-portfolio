@@ -20,6 +20,15 @@ export default defineNuxtConfig({
 	nitro: {
 		compressPublicAssets: true,
 		minify: true,
+		preset: 'netlify',
+		experimental: {
+			wasm: true
+		},
+		esbuild: {
+			options: {
+				target: 'es2020'
+			}
+		}
 	},
 
 	modules: [
@@ -68,6 +77,7 @@ export default defineNuxtConfig({
 	},
 
 	runtimeConfig: {
+		githubToken: process.env.GITHUB_TOKEN,
 		public: {
 			siteUrl: "https://brendonvanzanten.com",
 			siteName: "Brendon van Zanten",
@@ -75,7 +85,6 @@ export default defineNuxtConfig({
 				"Full Stack Web Developer specializing in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
 			language: "en",
 		},
-		githubToken: process.env.GITHUB_TOKEN,
 	},
 
 	compatibilityDate: "2025-01-08",
