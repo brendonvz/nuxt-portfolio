@@ -1,5 +1,5 @@
 <template>
-  <div class="py-16">
+  <div class="py-12 md:py-16">
     <h1 class="text-4xl text-center font-bold">Uses</h1>
   </div>
 
@@ -20,6 +20,7 @@
         <li class="ml-8 py-1">
           Hosted on <a href="https://netlify.com/">Netlify</a>
         </li>
+        <li class="ml-8 py-1">Design Inspiration from Tamer Magdy</li>
       </ul>
     </div>
 
@@ -29,6 +30,9 @@
       <h2 class="text-2xl font-bold mb-2">Editor</h2>
       <ul class="list-disc">
         <li class="ml-8 py-1">
+          <a href="https://www.cursor.com/" aria-label="Cursor">Cursor</a>
+        </li>
+        <li class="ml-8 py-1">
           <a
             href="https://code.visualstudio.com/"
             aria-label="Visual Studio Code"
@@ -36,13 +40,17 @@
           >
         </li>
         <li class="ml-8 py-1">
-          <a href="https://www.cursor.com/" aria-label="Cursor">Cursor</a>
+          <a
+            href="https://code.visualstudio.com/"
+            aria-label="Panda Theme + Material Icon Theme"
+            >Panda Theme + Material Icon Theme</a
+          >
         </li>
         <li class="ml-8 py-1">
           <a
             href="https://code.visualstudio.com/"
-            aria-label="Panda Theme + Material Icon Them"
-            >Panda Theme + Material Icon Theme</a
+            aria-label="Extensions include Biome, GitLens and Vue"
+            >Extensions include Biome, GitLens and Vue</a
           >
         </li>
       </ul>
@@ -57,12 +65,14 @@
             >MacBook Pro M4 14" (2025) 16GB RAM, 512GB SSD</a
           >
         </li>
+        <li class="ml-8 py-1">Keychron K3 Mechanical Keyboard</li>
         <li class="ml-8 py-1">
           <a
             href="https://www.lg.com/us/monitors/lg-38wn95c-w-ultrawide-monitor"
             >LG 38" Ultrawide (38WN95C)</a
           >
         </li>
+        <li class="ml-8 py-1">iPhone 15 Pro</li>
       </ul>
     </div>
   </div>

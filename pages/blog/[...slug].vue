@@ -1,5 +1,5 @@
 <template>
-  <div class="py-16">
+  <div class="py-12 md:py-16">
     <h1 class="text-4xl text-center font-bold">{{ data.title }}</h1>
   </div>
 

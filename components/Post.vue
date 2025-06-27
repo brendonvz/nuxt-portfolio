@@ -24,7 +24,7 @@ const props = defineProps(["posts"]);
       </p>
       <NuxtLink
         :to="post._path"
-        class="w-fit inline-block bg-[color:var(--element-active-background)] hover:opacity-80 text-[color:var(--element-text-active)] py-2 px-6 rounded-full transition-all duration-200 float-right mb-8 font-semibold"
+        class="w-fit inline-block bg-[color:var(--element-active-background)] hover:opacity-80 text-[color:var(--element-text-active)] py-2 px-6 rounded-full transition-all duration-200 self-start font-semibold"
       >
         Read More
       </NuxtLink>

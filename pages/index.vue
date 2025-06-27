@@ -1,5 +1,5 @@
 <template>
-  <div class="py-16">
+  <div class="py-12 md:py-16">
     <h1 class="text-4xl text-center font-bold">Brendon van Zanten</h1>
   </div>
 
@@ -83,6 +83,8 @@
     >
       <a
         href="https://ca.linkedin.com/in/brendon-van-zanten-13121559"
+        target="_blank"
+        rel="noopener noreferrer"
         class="flex flex-1 items-center justify-center"
         aria-label="LinkedIn"
       >
@@ -106,32 +108,32 @@
           >
         </div>
 
-        <div class="space-y-6 mb-6">
-          <div class="flex justify-between items-start">
+        <div class="space-y-6 lg:space-y-8 mb-6">
+          <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
             <div>
               <h4 class="text-lg font-semibold">Senior Web Developer</h4>
               <p class="text-[color:var(--foreground)] opacity-80">
                 District School Board of Niagara
               </p>
             </div>
-            <span class="text-[color:var(--foreground)] opacity-80"
+            <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
               >2023 - Present</span
             >
           </div>
 
-          <div class="flex justify-between items-start">
+          <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
             <div>
               <h4 class="text-lg font-semibold">Freelance Web Developer</h4>
               <p class="text-[color:var(--foreground)] opacity-80">
                 Brendon van Zanten
               </p>
             </div>
-            <span class="text-[color:var(--foreground)] opacity-80"
+            <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
               >2022 - Present</span
             >
           </div>
 
-					<div class="flex justify-between items-start">
+					<div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
             <div>
               <h4 class="text-lg font-semibold">
                 Greenhouse Operations Technician
@@ -140,19 +142,19 @@
                 van Zanten Floral
               </p>
             </div>
-            <span class="text-[color:var(--foreground)] opacity-80"
+            <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
               >2022 - 2023</span
             >
           </div>
 
-          <div class="flex justify-between items-start">
+          <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
             <div>
               <h4 class="text-lg font-semibold">Full Stack Web Developer</h4>
               <p class="text-[color:var(--foreground)] opacity-80">
                 Symetric Productions
               </p>
             </div>
-            <span class="text-[color:var(--foreground)] opacity-80"
+            <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
               >2015 - 2022</span
             >
           </div>
@@ -203,7 +205,7 @@
       class="@container/section contact-section flex bg-[#2563eb] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item min-h-48 md:aspect-auto xl:aspect-auto 6xl:aspect-square"
     >
       <a
-        href="mailto:brendon.vanzanten@gmail.com"
+        href="mailto:brendon.vanzanten@gmail.com?subject=Hello%20from%20Brendon%20van%20Zanten%20Website"
         class="flex flex-1 items-center justify-center"
         aria-label="Email"
       >
