@@ -22,6 +22,22 @@ useSeoMeta({
     "Web development insights, tutorials, and thoughts from a full stack developer. Learn about Vue.js, Nuxt.js, WordPress, and modern web technologies.",
   keywords:
     "web development blog, vue.js tutorials, nuxt.js guides, javascript tips, wordpress development",
+  // Open Graph tags for Facebook, LinkedIn, etc.
+  ogTitle: "Brendon van Zanten - Blog",
+  ogDescription: "Web development insights, tutorials, and thoughts from a full stack developer. Learn about Vue.js, Nuxt.js, WordPress, and modern web technologies.",
+  ogImage: "/images/profilepic.png",
+  ogImageAlt: "Web Development Blog - Brendon van Zanten",
+  ogType: "website",
+  ogUrl: "https://brendonvanzanten.com/blog",
+  ogSiteName: "Brendon van Zanten",
+  // Twitter Card tags
+  twitterCard: "summary_large_image",
+  twitterSite: "@brendon_vz",
+  twitterCreator: "@brendon_vz",
+  twitterTitle: "Brendon van Zanten - Blog",
+  twitterDescription: "Web development insights, tutorials, and thoughts from a full stack developer.",
+  twitterImage: "/images/profilepic.png",
+  twitterImageAlt: "Web Development Blog - Brendon van Zanten",
 });
 
 const { data: posts } = await useAsyncData("posts", () =>

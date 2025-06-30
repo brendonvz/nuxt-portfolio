@@ -89,6 +89,22 @@ useSeoMeta({
     "Tools, software, and hardware I use for web development. My development setup, favorite VS Code extensions, and productivity tools.",
   keywords:
     "developer tools, vs code setup, web development tools, productivity setup",
+  // Open Graph tags for Facebook, LinkedIn, etc.
+  ogTitle: "Brendon van Zanten - Uses",
+  ogDescription: "Tools, software, and hardware I use for web development. My development setup, favorite VS Code extensions, and productivity tools.",
+  ogImage: "/images/profilepic.png",
+  ogImageAlt: "Developer Tools and Setup - Brendon van Zanten",
+  ogType: "website",
+  ogUrl: "https://brendonvanzanten.com/uses",
+  ogSiteName: "Brendon van Zanten",
+  // Twitter Card tags
+  twitterCard: "summary_large_image",
+  twitterSite: "@brendon_vz",
+  twitterCreator: "@brendon_vz",
+  twitterTitle: "Brendon van Zanten - Uses",
+  twitterDescription: "Tools, software, and hardware I use for web development. My development setup and productivity tools.",
+  twitterImage: "/images/profilepic.png",
+  twitterImageAlt: "Developer Tools and Setup - Brendon van Zanten",
 });
 
 const usesContainer = ref(null);

@@ -20,12 +20,10 @@
         </div>
         <p class="text-pretty max-w-prose">
           I am a Web Developer living based in Niagara, Ontario who has been
-          doing full-stack development since 2015.
+          creating full-stack applications since 2015.
         </p>
         <p class="text-pretty max-w-prose">
-          My technical skills consist mostly of HTML, CSS, Javascript with a
-          focus on Vue and Nuxt! and then backend knowledge of Node, PHP and
-          .NET
+          I enjoy building dynamic, user-friendly interfaces with HTML, CSS, and JavaScript, focusing on Vue and Nuxt to create engaging experiences. On the back end, I develop reliable and scalable systems using technologies like Node.js, PHP, and .NET.
         </p>
       </div>
     </section>
@@ -228,6 +226,22 @@ useSeoMeta({
     "web developer, full stack developer, vue.js, nuxt.js, wordpress, webflow, javascript, php, ontario, niagara",
   author: "Brendon van Zanten",
   twitterCreator: "@brendon_vz",
+  // Open Graph tags for Facebook, LinkedIn, etc.
+  ogTitle: "Brendon van Zanten - Full Stack Web Developer",
+  ogDescription: "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
+  ogImage: "/images/profilepic.png",
+  ogImageAlt: "Brendon van Zanten - Full Stack Web Developer",
+  ogType: "website",
+  ogUrl: "https://brendonvanzanten.com",
+  ogSiteName: "Brendon van Zanten",
+  // Twitter Card tags
+  twitterCard: "summary_large_image",
+  twitterSite: "@brendon_vz",
+  twitterCreator: "@brendon_vz",
+  twitterTitle: "Brendon van Zanten - Full Stack Web Developer",
+  twitterDescription: "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications.",
+  twitterImage: "/images/profilepic.png",
+  twitterImageAlt: "Brendon van Zanten - Full Stack Web Developer",
 });
 
 const { data: posts } = await useAsyncData("latest-posts", () =>
