@@ -1,0 +1,33 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .favicon-text {
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        fill: #1a1a1a;
+        text-anchor: middle;
+        dominant-baseline: central;
+      }
+
+      .favicon-bg {
+        fill: #ebf1f4;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .favicon-text {
+          fill: #ffffff;
+        }
+        .favicon-bg {
+          fill: #23272f;
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Background with theme colors -->
+  <rect width="32" height="32" rx="6" class="favicon-bg"/>
+
+  <!-- Letter B -->
+  <text x="16" y="16" class="favicon-text">B</text>
+</svg>

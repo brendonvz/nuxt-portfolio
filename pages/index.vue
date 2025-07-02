@@ -41,10 +41,7 @@
 
     <!-- Services Section -->
     <section
-      ref="servicesSection"
-      @mouseenter="onServicesHover"
-      @mouseleave="onServicesLeave"
-      class="@container/section services-section flex bg-[color:var(--element-background)] flex-col max-xl:order-last col-span-full md:col-span-6 xl:col-span-3 xl:row-span-6 gap-2 p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item cursor-pointer"
+      class="@container/section services-section flex bg-[color:var(--element-background)] flex-col max-xl:order-last col-span-full md:col-span-6 xl:col-span-3 xl:row-span-6 gap-2 p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item"
     >
       <div class="p-6 flex flex-1 flex-col gap-4">
         <div class="mb-6">
@@ -57,17 +54,16 @@
           I specialize in creating modern, responsive websites and web applications that deliver great user experiences.</p>
 				<p>My expertise spans full-stack web development, custom WordPress solutions, Webflow design and development, as well as ongoing website maintenance and hosting.
         </p>
-        <div class="flex justify-center mt-4">
-          <LottieAnimation
-            ref="lottieAnimation"
-            animation-data="/images/coding-animation.json"
-            :width="80"
-            :height="80"
-            :autoplay="false"
-            :loop="true"
-            :stroke-width="0.8"
-            hand-color="#ebf1f4"
-            class="transition-transform duration-300"
+        <div class="flex justify-center mt-6">
+          <img
+            src="/images/laptop-coding.png"
+            alt="Laptop with code"
+            class="w-40 object-contain transition-transform duration-300 hover:scale-105 hover:rotate-2 filter grayscale-50 brightness-97"
+            style="
+              transform-origin: center;
+              backface-visibility: hidden;
+              -webkit-backface-visibility: hidden;
+            "
           />
         </div>
       </div>
@@ -268,21 +264,6 @@ const links = [
 const colorMode = useColorMode();
 
 const gridContainer = ref(null);
-const servicesSection = ref(null);
-const lottieAnimation = ref(null);
-
-// Methods to control Lottie animation from services section hover
-const onServicesHover = () => {
-  if (lottieAnimation.value) {
-    lottieAnimation.value.playAnimation();
-  }
-};
-
-const onServicesLeave = () => {
-  if (lottieAnimation.value) {
-    lottieAnimation.value.pauseAnimation();
-  }
-};
 
 onMounted(() => {
   // Make the container visible immediately
