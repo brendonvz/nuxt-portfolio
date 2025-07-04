@@ -1,11 +1,23 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
+      @font-face {
+        font-family: 'Inter';
+        src: url('/assets/fonts/InterVariable.woff2') format('woff2-variations');
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
       .icon-bg {
         fill: #ebf1f4;
       }
       .icon-letter {
         fill: #1a1a1a;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 700;
+        font-size: 320px;
+        text-anchor: middle;
+        alignment-baseline: middle;
       }
       @media (prefers-color-scheme: dark) {
         .icon-bg {
@@ -21,6 +33,8 @@
   <!-- Background -->
   <rect width="512" height="512" rx="96" class="icon-bg"/>
   
-  <!-- Letter B as path, scaled up -->
-  <path d="M160 128 L160 384 L288 384 Q352 384 352 320 Q352 256 288 256 L288 256 Q320 256 320 192 Q320 128 256 128 Z M208 176 L256 176 Q272 176 272 192 Q272 208 256 208 L208 208 Z M208 256 L288 256 Q304 256 304 288 Q304 320 288 320 L208 320 Z" class="icon-letter"/>
+  <!-- B letter centered using transform -->
+  <g transform="translate(256, 256)">
+    <text x="0" y="0" class="icon-letter">B</text>
+  </g>
 </svg>
