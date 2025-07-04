@@ -28,6 +28,16 @@ export default defineNuxtConfig({
 			options: {
 				target: 'es2020'
 			}
+		},
+		routeRules: {
+			// Prevent favicon caching
+			'/favicon.svg': { headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' } },
+			'/icon.svg': { headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' } },
+			'/apple-touch-icon.svg': { headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' } },
+			'/site.webmanifest': { headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' } },
+			// Other static assets can still be cached
+			'/images/**': { headers: { 'Cache-Control': 'public, max-age=31536000' } }, // 1 year
+			'/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000' } }, // 1 year
 		}
 	},
 
@@ -52,8 +62,9 @@ export default defineNuxtConfig({
 			title: "Brendon van Zanten - Full Stack Web Developer",
 			titleTemplate: "%s",
 			link: [
-				{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-				{ rel: "manifest", href: "/site.webmanifest" },
+				{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg?v=1" },
+				{ rel: "apple-touch-icon", href: "/apple-touch-icon.svg?v=1" },
+				{ rel: "manifest", href: "/site.webmanifest?v=1" },
 			],
 		},
 	},

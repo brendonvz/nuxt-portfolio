@@ -1,0 +1,26 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .apple-bg {
+        fill: #ebf1f4;
+      }
+      .apple-letter {
+        fill: #1a1a1a;
+      }
+      @media (prefers-color-scheme: dark) {
+        .apple-bg {
+          fill: #23272f;
+        }
+        .apple-letter {
+          fill: #ffffff;
+        }
+      }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="180" height="180" rx="40" class="apple-bg"/>
+  
+  <!-- Letter B as path, scaled for 180x180 -->
+  <path d="M56 45 L56 135 L101 135 Q124 135 124 112 Q124 90 101 90 L101 90 Q112 90 112 67 Q112 45 90 45 Z M73 62 L90 62 Q96 62 96 67 Q96 73 90 73 L73 73 Z M73 90 L101 90 Q107 90 107 101 Q107 112 101 112 L73 112 Z" class="apple-letter"/>
+</svg>

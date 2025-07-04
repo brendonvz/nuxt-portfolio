@@ -6,6 +6,7 @@ export default defineEventHandler(async (event) => {
     const svgPath = resolve('./public/favicon.svg')
     const svgContent = await readFile(svgPath, 'utf-8')
 
+    // Prevent caching completely
     setHeader(event, 'Content-Type', 'image/svg+xml')
     setHeader(event, 'Cache-Control', 'no-cache, no-store, must-revalidate')
     setHeader(event, 'Pragma', 'no-cache')

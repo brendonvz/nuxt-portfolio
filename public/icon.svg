@@ -1,0 +1,26 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .icon-bg {
+        fill: #ebf1f4;
+      }
+      .icon-letter {
+        fill: #1a1a1a;
+      }
+      @media (prefers-color-scheme: dark) {
+        .icon-bg {
+          fill: #23272f;
+        }
+        .icon-letter {
+          fill: #ffffff;
+        }
+      }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" class="icon-bg"/>
+  
+  <!-- Letter B as path, scaled up -->
+  <path d="M160 128 L160 384 L288 384 Q352 384 352 320 Q352 256 288 256 L288 256 Q320 256 320 192 Q320 128 256 128 Z M208 176 L256 176 Q272 176 272 192 Q272 208 256 208 L208 208 Z M208 256 L288 256 Q304 256 304 288 Q304 320 288 320 L208 320 Z" class="icon-letter"/>
+</svg>
