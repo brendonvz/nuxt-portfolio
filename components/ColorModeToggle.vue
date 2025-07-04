@@ -50,8 +50,47 @@ const bubblePosition = ref(0);
 const bubbleWidth = ref(0);
 const isLargeScreen = ref(false);
 
+const updateFavicon = (isDarkMode) => {
+  const favicon = document.querySelector('link[rel="icon"]');
+  if (favicon) {
+    const svgContent = `
+      <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>
+            .favicon-text {
+              font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              font-weight: 600;
+              font-size: 20px;
+              fill: ${isDarkMode ? '#ffffff' : '#1a1a1a'};
+              text-anchor: middle;
+              dominant-baseline: central;
+            }
+            .favicon-bg {
+              fill: ${isDarkMode ? '#23272f' : '#ebf1f4'};
+            }
+          </style>
+        </defs>
+        <rect width="32" height="32" rx="6" class="favicon-bg"/>
+        <text x="16" y="16" class="favicon-text">B</text>
+      </svg>
+    `;
+
+    const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    favicon.href = url;
+  }
+};
+
 const toggleColorMode = () => {
-  colorMode.preference = isDark.value ? "light" : "dark";
+  console.log('Current color mode:', colorMode.value);
+  const newMode = isDark.value ? "light" : "dark";
+  colorMode.preference = newMode;
+  console.log('New color mode:', newMode);
+
+  // Update favicon after theme change
+  setTimeout(() => {
+    updateFavicon(newMode === "dark");
+  }, 100);
 };
 
 const updateBubble = () => {
@@ -83,6 +122,7 @@ onMounted(async () => {
   updateBubble();
 
   if (process.client) {
+    updateFavicon(colorMode.value === "dark");
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
   }
