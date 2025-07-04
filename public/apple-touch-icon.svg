@@ -17,7 +17,7 @@
         font-weight: 700;
         font-size: 112px;
         text-anchor: middle;
-        alignment-baseline: middle;
+        dominant-baseline: central;
       }
       @media (prefers-color-scheme: dark) {
         .apple-bg {
@@ -33,8 +33,6 @@
   <!-- Background -->
   <rect width="180" height="180" rx="40" class="apple-bg"/>
   
-  <!-- B letter centered using transform -->
-  <g transform="translate(90, 90)">
-    <text x="0" y="0" class="apple-letter">B</text>
-  </g>
+  <!-- B letter using Inter font -->
+  <text x="90" y="90" class="apple-letter">B</text>
 </svg>

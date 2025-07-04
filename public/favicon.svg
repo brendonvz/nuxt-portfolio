@@ -17,7 +17,7 @@
         font-weight: 700;
         font-size: 20px;
         text-anchor: middle;
-        alignment-baseline: middle;
+        dominant-baseline: central;
       }
       @media (prefers-color-scheme: dark) {
         .favicon-bg {
@@ -33,8 +33,6 @@
   <!-- Background -->
   <rect width="32" height="32" rx="6" class="favicon-bg"/>
   
-  <!-- B letter centered using transform -->
-  <g transform="translate(16, 16)">
-    <text x="0" y="0" class="favicon-letter">B</text>
-  </g>
+  <!-- B letter using Inter font -->
+  <text x="16" y="16" class="favicon-letter">B</text>
 </svg>

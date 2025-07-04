@@ -17,7 +17,7 @@
         font-weight: 700;
         font-size: 320px;
         text-anchor: middle;
-        alignment-baseline: middle;
+        dominant-baseline: central;
       }
       @media (prefers-color-scheme: dark) {
         .icon-bg {
@@ -33,8 +33,6 @@
   <!-- Background -->
   <rect width="512" height="512" rx="96" class="icon-bg"/>
   
-  <!-- B letter centered using transform -->
-  <g transform="translate(256, 256)">
-    <text x="0" y="0" class="icon-letter">B</text>
-  </g>
+  <!-- B letter using Inter font -->
+  <text x="256" y="256" class="icon-letter">B</text>
 </svg>
