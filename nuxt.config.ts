@@ -31,10 +31,7 @@ export default defineNuxtConfig({
 		},
 		routeRules: {
 			// Prevent favicon caching
-			'/favicon.svg': { headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' } },
-			'/icon.svg': { headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' } },
-			'/apple-touch-icon.svg': { headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' } },
-			'/site.webmanifest': { headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' } },
+			'/favicon/**': { headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' } },
 			// Other static assets can still be cached
 			'/images/**': { headers: { 'Cache-Control': 'public, max-age=31536000' } }, // 1 year
 			'/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000' } }, // 1 year
@@ -62,9 +59,15 @@ export default defineNuxtConfig({
 			title: "Brendon van Zanten - Full Stack Web Developer",
 			titleTemplate: "%s",
 			link: [
-				{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg?v=1" },
-				{ rel: "apple-touch-icon", href: "/apple-touch-icon.svg?v=1" },
-				{ rel: "manifest", href: "/site.webmanifest?v=1" },
+				{ rel: "icon", type: "image/svg+xml", href: "/favicon/favicon.svg" },
+				{ rel: "icon", type: "image/png", href: "/favicon/favicon-96x96.png", sizes: "96x96" },
+				{ rel: "shortcut icon", href: "/favicon/favicon.ico" },
+				{ rel: "apple-touch-icon", type: "image/svg+xml", href: "/favicon/apple-touch-icon.svg" },
+				{ rel: "apple-touch-icon", sizes: "180x180", href: "/favicon/apple-touch-icon.png" },
+				{ rel: "manifest", href: "/favicon/site.webmanifest" },
+			],
+			meta: [
+				{ name: "apple-mobile-web-app-title", content: "Brendon" },
 			],
 		},
 	},
