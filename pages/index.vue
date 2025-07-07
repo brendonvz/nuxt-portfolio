@@ -19,7 +19,7 @@
           >
         </div>
         <p class="text-pretty max-w-prose">
-          I am a Web Developer living based in Niagara, Ontario who has been
+          I am a Web Developer based in Niagara, Ontario who has been
           creating full-stack applications since 2015.
         </p>
         <p class="text-pretty max-w-prose">
