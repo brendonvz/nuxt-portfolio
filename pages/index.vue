@@ -23,7 +23,7 @@
           creating full-stack applications since 2015.
         </p>
         <p class="text-pretty max-w-prose">
-          I enjoy building dynamic, user-friendly interfaces, focusing on Vue and Nuxt. On the back end, I develop reliable and scalable systems using technologies like Node.js, PHP, and .NET.
+          I enjoy building dynamic, user-friendly interfaces with Vue and Nuxt. On the back end, I develop reliable and scalable systems using technologies like Node.js, PHP, and .NET.
         </p>
       </div>
     </section>
