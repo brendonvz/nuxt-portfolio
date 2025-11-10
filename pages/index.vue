@@ -5,7 +5,7 @@
 
   <div
     ref="gridContainer"
-    class="@container w-full grid grid-cols-12 md:auto-rows-fr 2xl:auto-rows-fr gap-4 grid-container"
+    class="@container w-full grid grid-cols-12 gap-4 grid-container"
   >
     <!-- About Section -->
     <section
@@ -19,7 +19,7 @@
           >
         </div>
         <p class="text-pretty max-w-prose">
-          I am a Web Developer based in Niagara, Ontario who has been
+          I am a Software Engineer based in Niagara, Ontario who has been
           creating full-stack applications since 2015.
         </p>
         <p class="text-pretty max-w-prose">
@@ -71,7 +71,7 @@
 
     <!-- LinkedIn Section -->
     <section
-      class="@container/section linkedin-section flex bg-[#0077b5] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item min-h-48 md:aspect-auto xl:aspect-auto 6xl:aspect-square"
+      class="@container/section linkedin-section flex bg-[#0077b5] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
     >
       <a
         href="https://ca.linkedin.com/in/brendon-van-zanten-13121559"
@@ -193,7 +193,7 @@
 
     <!-- Instagram Section -->
     <section
-      class="@container/section instagram-section flex bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item min-h-48 md:aspect-auto xl:aspect-auto 6xl:aspect-square"
+      class="@container/section instagram-section flex bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
     >
       <a
         href="https://www.instagram.com/brendonvz/"
@@ -208,7 +208,7 @@
 
     <!-- Contact Section -->
     <section
-      class="@container/section contact-section flex bg-[#2563eb] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item min-h-48 md:aspect-auto xl:aspect-auto 6xl:aspect-square"
+      class="@container/section contact-section flex bg-[#2563eb] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
     >
       <a
         href="mailto:brendon.vanzanten@gmail.com?subject=Hello%20from%20Brendon%20van%20Zanten%20Website"
@@ -223,7 +223,13 @@
     <section
       v-for="item in featuredWork"
       :key="item.slug"
-      class="@container/section featured-work-section flex flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-auto xl:aspect-auto 6xl:aspect-square max-md:order-last"
+      class="@container/section featured-work-section flex flex-col col-span-full md:col-span-6 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square"
+      :class="[
+        featuredWork?.length === 2 ? 'xl:col-span-6 xl:aspect-auto' :
+        featuredWork?.length === 3 ? 'xl:col-span-4 xl:row-span-3 xl:aspect-auto' :
+        featuredWork?.length === 4 ? 'xl:col-span-3 xl:row-span-3 xl:aspect-square' :
+        'xl:col-span-3 xl:row-span-3 xl:aspect-auto'
+      ]"
       :style="{ backgroundColor: item.logoBg || 'var(--element-background)' }"
     >
       <NuxtLink
