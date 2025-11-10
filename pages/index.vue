@@ -218,6 +218,26 @@
         <Icon name="mdi:email" size="4rem" class="text-white" />
       </a>
     </section>
+
+    <!-- Featured Work Sections -->
+    <section
+      v-for="item in featuredWork"
+      :key="item.slug"
+      class="@container/section featured-work-section flex flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-auto xl:aspect-auto 6xl:aspect-square max-md:order-last"
+      :style="{ backgroundColor: item.logoBg || 'var(--element-background)' }"
+    >
+      <NuxtLink
+        :to="item._path"
+        class="flex flex-1 items-center justify-center p-6"
+      >
+        <img
+          v-if="item.logo"
+          :src="`/images/work/${item.logo}`"
+          :alt="`${item.client || item.title} logo`"
+          class="max-w-[60%] max-h-[60%] object-contain"
+        />
+      </NuxtLink>
+    </section>
   </div>
 </template>
 
@@ -252,8 +272,12 @@ useSeoMeta({
   twitterImageAlt: "Brendon van Zanten - Full Stack Web Developer",
 });
 
-const { data: posts } = await useAsyncData("latest-posts", () =>
-  queryContent("/blog").sort({ data: 1 }).limit(3).find()
+const { data: workItems } = await useAsyncData("latest-work", () =>
+  queryContent("/work").sort({ date: -1 }).limit(3).find()
+);
+
+const { data: featuredWork } = await useAsyncData("featured-work", () =>
+  queryContent("/work").where({ featured: true }).sort({ date: -1 }).find()
 );
 
 const links = [
@@ -292,6 +316,7 @@ onMounted(() => {
     ".experience-section",
     ".instagram-section",
     ".contact-section",
+    ".featured-work-section",
   ];
 
   animationOrder.forEach((selector, index) => {

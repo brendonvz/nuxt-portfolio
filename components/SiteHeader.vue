@@ -35,7 +35,7 @@ const route = useRoute();
 
 const navigation = computed(() => [
   { name: "Home", href: "/", current: route.name === "index" },
-  { name: "Blog", href: "/blog", current: route.name?.includes("blog") },
+  { name: "Work", href: "/work", current: route.name?.includes("work") },
   { name: "Projects", href: "/projects", current: route.name === "projects" },
   { name: "Uses", href: "/uses", current: route.name === "uses" },
 ]);

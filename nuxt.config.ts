@@ -47,6 +47,12 @@ export default defineNuxtConfig({
 		"@nuxtjs/seo",
 	],
 
+	content: {
+		markdown: {
+			anchorLinks: false,
+		},
+	},
+
 	site: {
 		url: "https://brendonvanzanten.com",
 		name: "Brendon van Zanten",

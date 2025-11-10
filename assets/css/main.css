@@ -178,6 +178,9 @@ body {
 	.contact-section {
 		order: 7;
 	}
+	.featured-work-section {
+		order: 8;
+	}
 }
 
 /* Mobile reordering - only when sections actually stack (container-based) */
@@ -202,5 +205,8 @@ body {
 	}
 	.contact-section {
 		order: 7;
+	}
+	.featured-work-section {
+		order: 8;
 	}
 }
