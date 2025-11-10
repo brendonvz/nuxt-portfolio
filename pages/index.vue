@@ -101,16 +101,30 @@
         </div>
 
         <div class="space-y-6 lg:space-y-8 mb-6">
-          <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
-            <div>
-              <h4 class="text-lg font-semibold">Senior Web Developer</h4>
-              <p class="text-[color:var(--foreground)] opacity-80">
-                District School Board of Niagara
-              </p>
+          <div class="flex flex-col gap-3 lg:gap-2">
+            <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
+              <div>
+                <h4 class="text-lg font-semibold">District School Board of Niagara</h4>
+              </div>
             </div>
-            <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
-              >2023 - Present</span
-            >
+            <div class="mt-2 pl-4 border-l border-[color:var(--experience-border-color)] space-y-3">
+              <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
+                <div>
+                  <p class="text-[color:var(--foreground)] opacity-80">Software Engineer</p>
+                </div>
+                <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
+                  >2025 - Present</span
+                >
+              </div>
+              <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
+                <div>
+                  <p class="text-[color:var(--foreground)] opacity-80">Senior Web Developer</p>
+                </div>
+                <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
+                  >2023 - 2025</span
+                >
+              </div>
+            </div>
           </div>
 
           <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">

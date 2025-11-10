@@ -28,6 +28,7 @@
 		--element-text-active: var(--color-dark);
 
 		--border-color: var(--color-dark);
+		--experience-border-color: var(--color-dark);
 	}
 
 	.dark {
@@ -40,6 +41,7 @@
 		--element-text-active: var(--color-white);
 
 		--border-color: var(--color-black);
+		--experience-border-color: var(--color-white);
 	}
 
 	/* Heading fonts */
