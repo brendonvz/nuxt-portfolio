@@ -72,7 +72,7 @@
             >LG 38" Ultrawide (38WN95C)</a
           >
         </li>
-        <li class="ml-8 py-1">iPhone 15 Pro</li>
+        <li class="ml-8 py-1">iPhone 16 Pro</li>
       </ul>
     </div>
   </div>
