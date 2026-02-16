@@ -80,7 +80,6 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { gsap } from "gsap";
 
 // SEO
 useSeoMeta({
@@ -109,7 +108,9 @@ useSeoMeta({
 
 const usesContainer = ref(null);
 
-onMounted(() => {
+onMounted(async () => {
+  const { gsap } = await import("gsap");
+
   gsap.fromTo(
     ".section-item",
     {

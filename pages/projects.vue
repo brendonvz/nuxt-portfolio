@@ -39,7 +39,6 @@
 
 <script setup>
 import { ref, onMounted, watch } from "vue";
-import { gsap } from "gsap";
 
 // SEO
 useSeoMeta({
@@ -85,9 +84,21 @@ const { data, pending, error } = await useAsyncData(
 );
 
 const projectContainer = ref(null);
+let gsapInstance = null;
 
-const animateProjects = () => {
+const getGsap = async () => {
+  if (!gsapInstance) {
+    const { gsap } = await import("gsap");
+    gsapInstance = gsap;
+  }
+
+  return gsapInstance;
+};
+
+const animateProjects = async () => {
   if (projectContainer.value) {
+    const gsap = await getGsap();
+
     gsap.fromTo(
       ".section-item",
       {
@@ -106,13 +117,17 @@ const animateProjects = () => {
   }
 };
 
-onMounted(animateProjects);
+onMounted(() => {
+  void animateProjects();
+});
 
 watch(data, (newData) => {
   if (newData) {
     // We need to wait for the DOM to update with the new data
     // before we can animate the new elements.
-    setTimeout(animateProjects, 0);
+    setTimeout(() => {
+      void animateProjects();
+    }, 0);
   }
 });
 </script>

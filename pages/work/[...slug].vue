@@ -138,7 +138,6 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { gsap } from "gsap";
 
 const { path } = useRoute();
 
@@ -160,7 +159,9 @@ useSeoMeta({
 
 const gridContainer = ref(null);
 
-onMounted(() => {
+onMounted(async () => {
+  const { gsap } = await import("gsap");
+
   // Make the container visible immediately
   gsap.set(gridContainer.value, { visibility: "visible" });
 
