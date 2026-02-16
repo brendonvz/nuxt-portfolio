@@ -6,7 +6,7 @@ const props = defineProps(["posts"]);
   <div
     v-for="post in props.posts"
     :key="post.slug"
-    class="@container/section flex bg-[color:var(--background)] dark:bg-[color:var(--element-background)] flex-col col-span-full md:col-span-4 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
+    class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-4 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
   >
     <NuxtLink :to="post._path">
       <img

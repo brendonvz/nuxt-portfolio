@@ -7,6 +7,24 @@
     ref="gridContainer"
     class="@container w-full grid grid-cols-12 gap-4 grid-container"
   >
+    <!-- Logo Section -->
+    <section
+      class="@container/section logo-section flex bg-white dark:bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
+    >
+      <div class="flex flex-1 items-center justify-center p-6">
+        <img
+          src="/images/logo-dark.svg"
+          alt="Brendon van Zanten logo"
+          class="w-full h-full max-w-[40%] max-h-[40%] object-contain dark:hidden"
+        />
+        <img
+          src="/images/logo-white.svg"
+          alt="Brendon van Zanten logo"
+          class="w-full h-full max-w-[40%] max-h-[40%] object-contain hidden dark:block"
+        />
+      </div>
+    </section>
+
     <!-- About Section -->
     <section
       class="@container/section about-section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item"
@@ -37,36 +55,6 @@
         alt="Brendon van Zanten profile picture"
         class="w-full h-full object-cover rounded-4xl"
       />
-    </section>
-
-    <!-- Services Section -->
-    <section
-      class="@container/section services-section flex bg-[color:var(--element-background)] flex-col max-xl:order-last col-span-full md:col-span-6 xl:col-span-3 xl:row-span-6 gap-2 p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item"
-    >
-      <div class="p-6 flex flex-1 flex-col gap-4">
-        <div class="mb-6">
-          <span
-            class="bg-[color:var(--color-red)] text-white text-sm font-medium px-4 py-1 rounded-full"
-            >Services</span
-          >
-        </div>
-        <p class="text-pretty max-w-prose">
-          I specialize in creating modern, responsive websites and web applications that deliver great user experiences.</p>
-				<p>My expertise spans full-stack web development, custom WordPress solutions, Webflow design and development, as well as ongoing website maintenance and hosting.
-        </p>
-        <div class="flex justify-center mt-6">
-          <img
-            src="/images/laptop-coding.png"
-            alt="Laptop with code"
-            class="w-40 object-contain transition-transform duration-300 hover:scale-105 hover:rotate-2 filter grayscale-50 brightness-97"
-            style="
-              transform-origin: center;
-              backface-visibility: hidden;
-              -webkit-backface-visibility: hidden;
-            "
-          />
-        </div>
-      </div>
     </section>
 
     <!-- LinkedIn Section -->
@@ -191,6 +179,23 @@
       </div>
     </section>
 
+    <!-- Services Section -->
+    <section
+      class="@container/section services-section flex bg-[color:var(--element-background)] flex-col max-xl:order-last col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
+    >
+      <div class="p-6 flex flex-1 flex-col gap-4">
+        <div class="mb-6">
+          <span
+            class="bg-[color:var(--color-red)] text-white text-sm font-medium px-4 py-1 rounded-full"
+            >Services</span
+          >
+        </div>
+        <p class="text-pretty max-w-prose">
+          Full-stack web development, custom WordPress and Webflow solutions, and ongoing maintenance and hosting for modern, responsive sites and apps.
+        </p>
+      </div>
+    </section>
+
     <!-- Instagram Section -->
     <section
       class="@container/section instagram-section flex bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
@@ -259,7 +264,6 @@ useSeoMeta({
   keywords:
     "web developer, full stack developer, vue.js, nuxt.js, wordpress, webflow, javascript, php, ontario, niagara",
   author: "Brendon van Zanten",
-  twitterCreator: "@brendon_vz",
   // Open Graph tags for Facebook, LinkedIn, etc.
   ogTitle: "Brendon van Zanten - Full Stack Web Developer",
   ogDescription: "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
@@ -304,9 +308,6 @@ const links = [
   },
 ];
 
-// Add color mode composable
-const colorMode = useColorMode();
-
 const gridContainer = ref(null);
 
 onMounted(() => {
@@ -315,6 +316,7 @@ onMounted(() => {
 
   // Custom animation order while keeping HTML layout intact
   const animationOrder = [
+    ".logo-section",
     ".about-section",
     ".profilepic-section",
     ".services-section",

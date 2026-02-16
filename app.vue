@@ -18,11 +18,6 @@ useHead({
 
 // Register service worker for caching
 if (process.client && "serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("/sw.js")
-    .then(() => console.log("Service Worker registered"))
-    .catch((error) =>
-      console.log("Service Worker registration failed:", error)
-    );
+  navigator.serviceWorker.register("/sw.js");
 }
 </script>

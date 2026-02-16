@@ -82,10 +82,8 @@ const updateFavicon = (isDarkMode) => {
 };
 
 const toggleColorMode = () => {
-  console.log('Current color mode:', colorMode.value);
   const newMode = isDark.value ? "light" : "dark";
   colorMode.preference = newMode;
-  console.log('New color mode:', newMode);
 
   // Update favicon after theme change
   setTimeout(() => {

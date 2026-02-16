@@ -1,15 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Nunito+Sans:wght@300;400;500;600;700&display=swap");
+/* Nunito Sans only from Google; Inter loaded locally below for fewer requests */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Use class-based dark mode so dark: matches Nuxt color mode (.dark on html) */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
 	:root {
 		font-family: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont,
 			"Segoe UI", Roboto, sans-serif;
+
+		/* Raw palette */
 		--color-white: #ffffff;
 		--color-black: #000000;
 		--color-dark: #1a1a1a;
@@ -18,15 +20,19 @@
 		--color-darkgray: #1c1c1c;
 		--color-red: #d91200;
 
+		/* Page: body/canvas */
 		--background: var(--color-lightblue);
 		--foreground: var(--color-dark);
 
+		/* Surfaces: cards, sections, header, footer, nav pill */
 		--element-background: var(--color-white);
 		--element-text: var(--color-dark);
 
+		/* Active/primary: buttons, selected nav item, toggle bubble */
 		--element-active-background: var(--color-lightblue);
 		--element-text-active: var(--color-dark);
 
+		/* Borders */
 		--border-color: var(--color-dark);
 		--experience-border-color: var(--color-dark);
 	}
@@ -36,10 +42,8 @@
 		--foreground: var(--color-white);
 		--element-background: var(--color-darkgray);
 		--element-text: var(--color-white);
-
 		--element-active-background: var(--color-darkblue);
 		--element-text-active: var(--color-white);
-
 		--border-color: var(--color-black);
 		--experience-border-color: var(--color-white);
 	}
@@ -157,6 +161,9 @@ body {
 }
 
 @media (max-width: 1152px) {
+	.logo-section {
+		order: 0;
+	}
 	.about-section {
 		order: 1;
 	}
@@ -185,6 +192,9 @@ body {
 
 /* Mobile reordering - only when sections actually stack (container-based) */
 @media (max-width: 639px) {
+	.logo-section {
+		order: 0;
+	}
 	.about-section {
 		order: 1;
 	}

@@ -15,7 +15,7 @@
     <div
       v-for="project in data.viewer.repositories.nodes"
       :key="project.id"
-      class="@container/section flex bg-[color:var(--background)] dark:bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
+      class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
     >
       <div class="p-6 flex flex-1 flex-col gap-4">
         <h2 class="text-2xl font-semibold mb-2">

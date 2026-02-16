@@ -1,24 +1,21 @@
 {
-  "name": "Brendon van Zanten - Full Stack Web Developer",
+  "name": "Brendon van Zanten",
   "short_name": "Brendon van Zanten",
-  "description": "Full Stack Web Developer specializing in Vue.js, Nuxt.js, WordPress, and modern web applications.",
   "icons": [
     {
-      "src": "/favicon/web-app-manifest-192x192.png",
+      "src": "/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/favicon/web-app-manifest-512x512.png",
+      "src": "/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
   "theme_color": "#1a1a1a",
-  "background_color": "#ebf1f4",
-  "display": "minimal-ui",
-  "start_url": "/",
-  "scope": "/"
+  "background_color": "#ffffff",
+  "display": "standalone"
 }

@@ -8,7 +8,7 @@
     class="w-full grid grid-cols-12 2xl:auto-rows-fr gap-4"
   >
     <div
-      class="@container/section flex bg-[color:var(--background)] dark:bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
+      class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
     >
       <h2 class="text-2xl font-bold mb-2">This Website</h2>
       <ul class="list-disc">
@@ -25,7 +25,7 @@
     </div>
 
     <div
-      class="@container/section flex bg-[color:var(--background)] dark:bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
+      class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
     >
       <h2 class="text-2xl font-bold mb-2">Editor</h2>
       <ul class="list-disc">
@@ -56,7 +56,7 @@
       </ul>
     </div>
     <div
-      class="@container/section flex bg-[color:var(--background)] dark:bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
+      class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
     >
       <h2 class="text-2xl font-bold mb-2">Hardware</h2>
       <ul class="list-disc">

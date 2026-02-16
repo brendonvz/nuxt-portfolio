@@ -4,10 +4,8 @@ const urlsToCache = [
 	"/blog",
 	"/projects",
 	"/uses",
+	"/work",
 	"/images/profilepic.png",
-	"/images/laptop-coding.png",
-	"/_nuxt/entry.css",
-	"/_nuxt/entry.js",
 ];
 
 self.addEventListener("install", (event) => {

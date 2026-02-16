@@ -5,7 +5,7 @@ date: 2024-01-15
 logo: databall-logo.svg
 logoBg: "#283a4f"
 client: Databall
-website: https://databall.io/
+website:
 studioMined: true
 screenshot: databall-screenshot-1.png
 tag: 'Webflow'

@@ -1,7 +1,7 @@
 <template>
-  <footer class="bg-gray-800">
+  <footer class="bg-[color:var(--element-background)] border-t border-[color:var(--border-color)]">
     <section
-      class="mx-auto max-w-7xl px-2 sm:px-4 lg:py-6 text-gray-300 flex flex-row"
+      class="mx-auto max-w-7xl px-2 sm:px-4 lg:py-6 text-[color:var(--foreground)] flex flex-row opacity-90"
     >
       <p class="flex-1">&copy; Brendon van Zanten. All Rights Reserved</p>
       <div class="flex flex-row justify-center gap-4 mb-4 mt-2">
@@ -11,8 +11,9 @@
           :href="link.href"
           target="_blank"
           rel="noopener noreferrer"
+          class="text-[color:var(--foreground)]"
         >
-          <Icon :name="link.icon" size="1.5rem" class="text-gray-300" />
+          <Icon :name="link.icon" size="1.5rem" />
         </a>
       </div>
     </section>
