@@ -12,6 +12,17 @@ import { onMounted } from "vue";
 // Preload critical resources
 useHead({
   link: [
+    {
+      rel: "preload",
+      as: "style",
+      href: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap",
+    },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap",
+      media: "print",
+      onload: "this.media='all'",
+    },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
     { rel: "dns-prefetch", href: "https://api.github.com" },
