@@ -5,7 +5,7 @@ const urlsToCache = [
 	"/projects",
 	"/uses",
 	"/work",
-	"/images/profilepic.png",
+	"/images/profilepic.jpg",
 ];
 
 self.addEventListener("install", (event) => {

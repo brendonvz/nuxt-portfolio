@@ -17,6 +17,8 @@ const props = defineProps(["work"]);
       <img
         :src="`/images/work/${item.logo}`"
         :alt="`${item.client || item.title} logo`"
+        loading="lazy"
+        decoding="async"
         class="max-w-[80%] max-h-28 object-contain"
       />
     </div>

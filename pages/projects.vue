@@ -51,7 +51,7 @@ useSeoMeta({
   // Open Graph tags for Facebook, LinkedIn, etc.
   ogTitle: "Brendon van Zanten - Projects",
   ogDescription: "View my portfolio of web development projects including Vue.js applications, WordPress sites, and custom web solutions.",
-  ogImage: "/images/profilepic.png",
+  ogImage: "/images/profilepic.jpg",
   ogImageAlt: "Web Development Projects - Brendon van Zanten",
   ogType: "website",
   ogUrl: "https://brendonvanzanten.com/projects",
@@ -62,7 +62,7 @@ useSeoMeta({
   twitterCreator: "@brendon_vz",
   twitterTitle: "Brendon van Zanten - Projects",
   twitterDescription: "View my portfolio of web development projects including Vue.js applications, WordPress sites, and custom web solutions.",
-  twitterImage: "/images/profilepic.png",
+  twitterImage: "/images/profilepic.jpg",
   twitterImageAlt: "Web Development Projects - Brendon van Zanten",
 });
 

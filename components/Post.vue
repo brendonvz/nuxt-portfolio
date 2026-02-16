@@ -1,5 +1,9 @@
 <script setup>
 const props = defineProps(["posts"]);
+
+const onCoverError = (event) => {
+  event.target.src = "/images/blog/default-cover.jpg";
+};
 </script>
 
 <template>
@@ -12,6 +16,9 @@ const props = defineProps(["posts"]);
       <img
         :src="`/images/blog/${post.cover}`"
         alt="Blog Post Cover Image"
+        loading="lazy"
+        decoding="async"
+        @error="onCoverError"
         class="w-full h-48 object-cover rounded-t-4xl"
       />
     </NuxtLink>

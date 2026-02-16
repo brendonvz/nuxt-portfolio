@@ -25,7 +25,7 @@ useSeoMeta({
   // Open Graph tags for Facebook, LinkedIn, etc.
   ogTitle: "Brendon van Zanten - Blog",
   ogDescription: "Web development insights, tutorials, and thoughts from a full stack developer. Learn about Vue.js, Nuxt.js, WordPress, and modern web technologies.",
-  ogImage: "/images/profilepic.png",
+  ogImage: "/images/profilepic.jpg",
   ogImageAlt: "Web Development Blog - Brendon van Zanten",
   ogType: "website",
   ogUrl: "https://brendonvanzanten.com/blog",
@@ -36,7 +36,7 @@ useSeoMeta({
   twitterCreator: "@brendon_vz",
   twitterTitle: "Brendon van Zanten - Blog",
   twitterDescription: "Web development insights, tutorials, and thoughts from a full stack developer.",
-  twitterImage: "/images/profilepic.png",
+  twitterImage: "/images/profilepic.jpg",
   twitterImageAlt: "Web Development Blog - Brendon van Zanten",
 });
 

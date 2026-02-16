@@ -15,11 +15,16 @@
         <img
           src="/images/logo-dark.svg"
           alt="Brendon van Zanten logo"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
           class="w-full h-full max-w-[40%] max-h-[40%] object-contain dark:hidden"
         />
         <img
           src="/images/logo-white.svg"
           alt="Brendon van Zanten logo"
+          loading="eager"
+          decoding="async"
           class="w-full h-full max-w-[40%] max-h-[40%] object-contain hidden dark:block"
         />
       </div>
@@ -51,8 +56,13 @@
       class="@container/section profilepic-section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item 6xl:aspect-square"
     >
       <img
-        src="/images/profilepic.png"
+        src="/images/profilepic.jpg"
         alt="Brendon van Zanten profile picture"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        width="768"
+        height="768"
         class="w-full h-full object-cover rounded-4xl"
       />
     </section>
@@ -245,6 +255,8 @@
           v-if="item.logo"
           :src="`/images/work/${item.logo}`"
           :alt="`${item.client || item.title} logo`"
+          loading="lazy"
+          decoding="async"
           class="max-w-[60%] max-h-[60%] object-contain"
         />
       </NuxtLink>
@@ -267,7 +279,7 @@ useSeoMeta({
   // Open Graph tags for Facebook, LinkedIn, etc.
   ogTitle: "Brendon van Zanten - Full Stack Web Developer",
   ogDescription: "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
-  ogImage: "/images/profilepic.png",
+  ogImage: "/images/profilepic.jpg",
   ogImageAlt: "Brendon van Zanten - Full Stack Web Developer",
   ogType: "website",
   ogUrl: "https://brendonvanzanten.com",
@@ -278,35 +290,13 @@ useSeoMeta({
   twitterCreator: "@brendon_vz",
   twitterTitle: "Brendon van Zanten - Full Stack Web Developer",
   twitterDescription: "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications.",
-  twitterImage: "/images/profilepic.png",
+  twitterImage: "/images/profilepic.jpg",
   twitterImageAlt: "Brendon van Zanten - Full Stack Web Developer",
 });
-
-const { data: workItems } = await useAsyncData("latest-work", () =>
-  queryContent("/work").sort({ date: -1 }).limit(3).find()
-);
 
 const { data: featuredWork } = await useAsyncData("featured-work", () =>
   queryContent("/work").where({ featured: true }).sort({ date: -1 }).find()
 );
-
-const links = [
-  {
-    name: "Twitter",
-    href: "https://x.com/brendon_vz",
-    icon: "entypo-social:twitter",
-  },
-  {
-    name: "LinkedIn",
-    href: "https://ca.linkedin.com/in/brendon-van-zanten-13121559",
-    icon: "entypo-social:linkedin-with-circle",
-  },
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/brendonvz/",
-    icon: "entypo-social:instagram",
-  },
-];
 
 const gridContainer = ref(null);
 

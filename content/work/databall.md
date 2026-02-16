@@ -7,7 +7,7 @@ logoBg: "#283a4f"
 client: Databall
 website:
 studioMined: true
-screenshot: databall-screenshot-1.png
+screenshot: databall-screenshot-1.jpg
 tag: 'Webflow'
 featured: true
 ---

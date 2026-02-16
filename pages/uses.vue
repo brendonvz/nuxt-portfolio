@@ -92,7 +92,7 @@ useSeoMeta({
   // Open Graph tags for Facebook, LinkedIn, etc.
   ogTitle: "Brendon van Zanten - Uses",
   ogDescription: "Tools, software, and hardware I use for web development. My development setup, favorite VS Code extensions, and productivity tools.",
-  ogImage: "/images/profilepic.png",
+  ogImage: "/images/profilepic.jpg",
   ogImageAlt: "Developer Tools and Setup - Brendon van Zanten",
   ogType: "website",
   ogUrl: "https://brendonvanzanten.com/uses",
@@ -103,7 +103,7 @@ useSeoMeta({
   twitterCreator: "@brendon_vz",
   twitterTitle: "Brendon van Zanten - Uses",
   twitterDescription: "Tools, software, and hardware I use for web development. My development setup and productivity tools.",
-  twitterImage: "/images/profilepic.png",
+  twitterImage: "/images/profilepic.jpg",
   twitterImageAlt: "Developer Tools and Setup - Brendon van Zanten",
 });
 

@@ -22,6 +22,8 @@
           <img
             :src="`/images/work/${data.logo}`"
             :alt="`${data.client || data.title} logo`"
+            loading="eager"
+            decoding="async"
             class="max-w-[60%] max-h-[60%] object-contain"
           />
         </div>
@@ -42,6 +44,8 @@
           <img
             src="/images/work/goodwell-logo.png"
             alt="Goodwell Studio logo"
+            loading="lazy"
+            decoding="async"
             class="max-w-[80%] max-h-[80%] object-contain"
           />
         </a>
@@ -62,6 +66,8 @@
           <img
             src="/images/work/studio-mined-logo.jpg"
             alt="Studio Mined logo"
+            loading="lazy"
+            decoding="async"
             class="max-w-[80%] max-h-[80%] object-contain"
           />
         </a>
@@ -121,6 +127,8 @@
         <img
           :src="`/images/work/${data.screenshot}`"
           :alt="`${data.title} screenshot`"
+          loading="lazy"
+          decoding="async"
           class="w-full h-auto object-cover"
         />
       </section>

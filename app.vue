@@ -7,6 +7,8 @@
 </template>
 
 <script setup>
+import { onMounted } from "vue";
+
 // Preload critical resources
 useHead({
   link: [
@@ -17,7 +19,9 @@ useHead({
 });
 
 // Register service worker for caching
-if (process.client && "serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/sw.js");
-}
+onMounted(() => {
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js").catch(() => {});
+  }
+});
 </script>

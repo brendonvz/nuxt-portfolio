@@ -25,7 +25,7 @@ useSeoMeta({
   // Open Graph tags for Facebook, LinkedIn, etc.
   ogTitle: "Brendon van Zanten - Client Work",
   ogDescription: "Explore the web development projects I've completed for clients. Custom websites, web applications, and digital solutions.",
-  ogImage: "/images/profilepic.png",
+  ogImage: "/images/profilepic.jpg",
   ogImageAlt: "Client Work - Brendon van Zanten",
   ogType: "website",
   ogUrl: "https://brendonvanzanten.com/work",
@@ -36,7 +36,7 @@ useSeoMeta({
   twitterCreator: "@brendon_vz",
   twitterTitle: "Brendon van Zanten - Client Work",
   twitterDescription: "Explore the web development projects I've completed for clients.",
-  twitterImage: "/images/profilepic.png",
+  twitterImage: "/images/profilepic.jpg",
   twitterImageAlt: "Client Work - Brendon van Zanten",
 });
 

@@ -9,9 +9,6 @@ interface GitHubResponse {
           createdAt: string;
           description: string | null;
           url: string;
-          readme: {
-            text: string;
-          } | null;
         }>;
       };
     };
@@ -45,11 +42,6 @@ export default defineEventHandler(async (event) => {
             createdAt
             description
             url
-            readme: object(expression: "HEAD:README.md") {
-              ... on Blob {
-                text
-              }
-            }
           }
         }
       }
@@ -68,35 +60,17 @@ export default defineEventHandler(async (event) => {
       })
     });
 
-    // Process the data to extract description from README if needed
+    // Keep payload small and normalize null descriptions.
     const processedData = {
       viewer: {
         repositories: {
           totalCount: response.data.viewer.repositories.totalCount,
           nodes: response.data.viewer.repositories.nodes.map(repo => {
-            let description = repo.description;
-
-            // If no description, try to extract from README
-            if (!description && repo.readme?.text) {
-              const readmeText = repo.readme.text;
-              // Extract first paragraph or first line that looks like a description
-              const lines = readmeText.split('\n').filter(line => line.trim());
-
-              // Skip title lines (starting with #) and find first descriptive line
-              for (const line of lines) {
-                const trimmed = line.trim();
-                if (trimmed && !trimmed.startsWith('#') && !trimmed.startsWith('![') && trimmed.length > 20) {
-                  description = trimmed.length > 150 ? trimmed.substring(0, 147) + '...' : trimmed;
-                  break;
-                }
-              }
-            }
-
             return {
               id: repo.id,
               name: repo.name,
               createdAt: repo.createdAt,
-              description: description || 'No description available',
+              description: repo.description || 'No description available',
               url: repo.url
             };
           })

@@ -7,7 +7,7 @@ logoBg: "#b9ceff"
 client: Uniropa Travel
 website: https://www.uniropatravel.com/
 goodwell: true
-screenshot: uniropa-screenshot-1.png
+screenshot: uniropa-screenshot-1.jpg
 tag: 'Wordpress'
 featured: true
 ---
