@@ -95,8 +95,8 @@ npm run dev
 # Build for production
 npm run build
 
-# Preview production build locally
-npm run preview
+# For local static verification of the generated dist output
+npx serve dist -l 3000
 ```
 
 ## 📝 Content Management
@@ -146,6 +146,12 @@ This site is configured for deployment on Netlify:
 - **Core Web Vitals**: Optimized for excellent user experience
 - **Image Optimization**: Automatic WebP conversion and lazy loading
 - **Code Splitting**: Automatic route-based code splitting with Nuxt
+- **Font Strategy**: Inter is self-hosted, Nunito Sans is loaded from Google Fonts
+
+## 🧹 Maintenance Notes
+
+- Legacy favicon files (`public/favicon-dark-old.svg`, `public/favicon-light-old.svg`) were removed to avoid asset confusion.
+- Primary favicon assets are managed in `public/favicon/` and linked from `nuxt.config.ts`.
 
 ## 🤝 Contributing
 

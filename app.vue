@@ -9,7 +9,7 @@
 <script setup>
 import { onMounted } from "vue";
 
-// Preload critical resources
+// Load external resources with low render impact
 useHead({
   link: [
     {
