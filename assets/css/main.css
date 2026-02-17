@@ -159,7 +159,7 @@ body {
 		order: 1;
 	}
 	.profilepic-section {
-		order: 2;
+		order: 3;
 	}
 	.experience-section {
 		order: 4;
@@ -168,7 +168,7 @@ body {
 		order: 5;
 	}
 	.linkedin-section {
-		order: 3;
+		order: 2;
 	}
 	.instagram-section {
 		order: 6;
@@ -190,7 +190,7 @@ body {
 		order: 1;
 	}
 	.profilepic-section {
-		order: 2;
+		order: 3;
 	}
 	.experience-section {
 		order: 3;
@@ -199,7 +199,7 @@ body {
 		order: 4;
 	}
 	.linkedin-section {
-		order: 5;
+		order: 2;
 	}
 	.instagram-section {
 		order: 6;

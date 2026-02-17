@@ -51,22 +51,6 @@
       </div>
     </section>
 
-    <!-- Profile Pic Section -->
-    <section
-      class="@container/section profilepic-section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item 6xl:aspect-square"
-    >
-      <img
-        src="/images/profilepic.jpg"
-        alt="Brendon van Zanten profile picture"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-        width="768"
-        height="768"
-        class="w-full h-full object-cover rounded-4xl"
-      />
-    </section>
-
     <!-- LinkedIn Section -->
     <section
       class="@container/section linkedin-section flex bg-[#0077b5] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
@@ -84,6 +68,22 @@
           class="text-white"
         />
       </a>
+    </section>
+
+    <!-- Profile Pic Section -->
+    <section
+      class="@container/section profilepic-section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item 6xl:aspect-square"
+    >
+      <img
+        src="/images/profilepic.jpg"
+        alt="Brendon van Zanten profile picture"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        width="768"
+        height="768"
+        class="w-full h-full object-cover rounded-4xl"
+      />
     </section>
 
     <!-- Experience Section -->
@@ -217,7 +217,7 @@
         class="flex flex-1 items-center justify-center"
         aria-label="Instagram"
       >
-        <Icon name="entypo-social:instagram" size="4rem" class="text-white" />
+        <Icon name="mdi:instagram" size="4rem" class="text-white" />
       </a>
     </section>
 
@@ -243,7 +243,10 @@
         featuredWork?.length === 2 ? 'xl:col-span-6 xl:aspect-auto' :
         featuredWork?.length === 3 ? 'xl:col-span-4 xl:row-span-3 xl:aspect-auto' :
         featuredWork?.length === 4 ? 'xl:col-span-3 xl:row-span-3 xl:aspect-square' :
-        'xl:col-span-3 xl:row-span-3 xl:aspect-auto'
+        'xl:col-span-3 xl:row-span-3 xl:aspect-auto',
+        item._path?.includes('/work/databall') || item._path?.includes('/work/uniropa-travel')
+          ? 'xl:aspect-[2/1]'
+          : ''
       ]"
       :style="{ backgroundColor: item.logoBg || 'var(--element-background)' }"
     >
@@ -309,9 +312,9 @@ onMounted(async () => {
   const animationOrder = [
     ".logo-section",
     ".about-section",
+    ".linkedin-section",
     ".profilepic-section",
     ".services-section",
-    ".linkedin-section",
     ".experience-section",
     ".instagram-section",
     ".contact-section",

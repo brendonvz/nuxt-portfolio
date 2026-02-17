@@ -13,13 +13,8 @@ import { onMounted } from "vue";
 useHead({
   link: [
     {
-      rel: "preload",
-      as: "style",
-      href: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap",
-    },
-    {
       rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap",
+      href: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap",
       media: "print",
       onload: "this.media='all'",
     },
