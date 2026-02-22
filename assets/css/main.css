@@ -151,6 +151,58 @@ body {
 	margin-top: 0;
 }
 
+.logo-section {
+	position: relative;
+	overflow: hidden;
+	background-color: #96c7de;
+	color: #0c4067;
+}
+
+.dark .logo-section {
+	background-color: #033a5a;
+	color: #b8edf5;
+}
+
+.logo-section::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background: linear-gradient(
+		0deg,
+		rgba(210, 241, 249, 0.28) 0%,
+		rgba(210, 241, 249, 0.2) 22%,
+		rgba(210, 241, 249, 0.1) 52%,
+		rgba(210, 241, 249, 0.06) 80%,
+		rgba(210, 241, 249, 0.09) 100%
+	);
+}
+
+.dark .logo-section::before {
+	background: linear-gradient(
+		0deg,
+		rgba(0, 0, 0, 0.28) 0%,
+		rgba(0, 0, 0, 0.2) 22%,
+		rgba(0, 0, 0, 0.1) 52%,
+		rgba(0, 0, 0, 0.06) 80%,
+		rgba(0, 0, 0, 0.09) 100%
+	);
+}
+
+.logo-section > * {
+	position: relative;
+	z-index: 1;
+}
+
+.logo-section .logo-mark {
+	filter:
+		drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.34))
+		drop-shadow(0 1px 2px rgba(5, 36, 58, 0.08))
+		drop-shadow(0 9px 14px rgba(6, 52, 83, 0.22));
+	transform: translateY(-0.7px) scale(1.022);
+}
+
 @media (max-width: 1152px) {
 	.logo-section {
 		order: 0;

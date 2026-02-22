@@ -14,6 +14,7 @@ export default defineNuxtConfig({
 
 	// Performance optimizations
 	experimental: {
+		appManifest: false,
 		viewTransition: true,
 	},
 

@@ -9,23 +9,12 @@
   >
     <!-- Logo Section -->
     <section
-      class="@container/section logo-section flex bg-white dark:bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
+      class="@container/section logo-section flex flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
     >
       <div class="flex flex-1 items-center justify-center p-6">
-        <img
-          src="/images/logo-dark.svg"
-          alt="Brendon van Zanten logo"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-          class="w-full h-full max-w-[40%] max-h-[40%] object-contain dark:hidden"
-        />
-        <img
-          src="/images/logo-white.svg"
-          alt="Brendon van Zanten logo"
-          loading="eager"
-          decoding="async"
-          class="w-full h-full max-w-[40%] max-h-[40%] object-contain hidden dark:block"
+        <LogoMark
+          aria-label="Brendon van Zanten logo"
+          class="logo-mark w-full h-full max-w-[40%] max-h-[40%] object-contain"
         />
       </div>
     </section>
