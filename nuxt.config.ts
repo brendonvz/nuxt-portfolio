@@ -38,6 +38,9 @@ export default defineNuxtConfig({
 			'/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000' } }, // 1 year
 			// Cache GitHub projects API response to reduce repeated upstream requests
 			'/api/github/projects': { swr: 3600 },
+			// Keep hidden variation page out of search results
+			'/logo-variations': { headers: { 'X-Robots-Tag': 'noindex, nofollow, noarchive, nosnippet' } },
+			'/logo-variations/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow, noarchive, nosnippet' } },
 		}
 	},
 
