@@ -1,6 +1,6 @@
 <template>
   <div class="py-12 md:py-16">
-    <h1 class="text-4xl text-center font-bold">Brendon van Zanten</h1>
+    <h1 class="text-4xl text-center">Brendon van Zanten</h1>
   </div>
 
   <div
@@ -91,7 +91,7 @@
           <div class="flex flex-col gap-3 lg:gap-2">
             <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
               <div>
-                <h4 class="text-lg font-semibold">District School Board of Niagara</h4>
+                <h4 class="text-lg">District School Board of Niagara</h4>
               </div>
             </div>
             <div class="mt-2 pl-4 border-l border-[color:var(--experience-border-color)] space-y-3">
@@ -116,7 +116,7 @@
 
           <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
             <div>
-              <h4 class="text-lg font-semibold">Freelance Web Developer</h4>
+              <h4 class="text-lg">Freelance Web Developer</h4>
               <p class="text-[color:var(--foreground)] opacity-80">
                 Brendon van Zanten
               </p>
@@ -128,7 +128,7 @@
 
 					<div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
             <div>
-              <h4 class="text-lg font-semibold">
+              <h4 class="text-lg">
                 Greenhouse Operations Technician
               </h4>
               <p class="text-[color:var(--foreground)] opacity-80">
@@ -142,7 +142,7 @@
 
           <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
             <div>
-              <h4 class="text-lg font-semibold">Full Stack Web Developer</h4>
+              <h4 class="text-lg">Full Stack Web Developer</h4>
               <p class="text-[color:var(--foreground)] opacity-80">
                 Symetric Productions
               </p>

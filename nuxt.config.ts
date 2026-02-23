@@ -36,8 +36,8 @@ export default defineNuxtConfig({
 			// Other static assets can still be cached
 			'/images/**': { headers: { 'Cache-Control': 'public, max-age=31536000' } }, // 1 year
 			'/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000' } }, // 1 year
-			// Cache GitHub projects API response to reduce repeated upstream requests
-			'/api/github/projects': { swr: 3600 },
+			// Fetch GitHub projects fresh so description fallback updates immediately
+			'/api/github/projects': { swr: false },
 			// Keep hidden variation page out of search results
 			'/logo-variations': { headers: { 'X-Robots-Tag': 'noindex, nofollow, noarchive, nosnippet' } },
 			'/logo-variations/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow, noarchive, nosnippet' } },

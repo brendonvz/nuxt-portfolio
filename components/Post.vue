@@ -23,7 +23,7 @@ const onCoverError = (event) => {
       />
     </NuxtLink>
     <div class="p-6 flex flex-1 flex-col gap-4">
-      <h2 class="text-xl font-bold mb-2 text-[color:var(--foreground)]">
+      <h2 class="text-xl mb-2">
         {{ post.title }}
       </h2>
       <p class="text-neutral-600 dark:text-neutral-400 mb-4">

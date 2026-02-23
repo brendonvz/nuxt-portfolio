@@ -1,6 +1,6 @@
 <template>
   <div class="py-12 md:py-16">
-    <h1 class="text-4xl text-center font-bold">Uses</h1>
+    <h1 class="text-4xl text-center">Uses</h1>
   </div>
 
   <div
@@ -10,7 +10,7 @@
     <div
       class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
     >
-      <h2 class="text-2xl font-bold mb-2">This Website</h2>
+      <h2 class="text-2xl mb-2">This Website</h2>
       <ul class="list-disc">
         <li class="ml-8 py-1"><a href="https://vuejs.org/">Vue 3</a></li>
         <li class="ml-8 py-1"><a href="https://nuxt.com/">Nuxt 3</a></li>
@@ -20,14 +20,13 @@
         <li class="ml-8 py-1">
           Hosted on <a href="https://netlify.com/">Netlify</a>
         </li>
-        <li class="ml-8 py-1">Design Inspiration from Tamer Magdy</li>
       </ul>
     </div>
 
     <div
       class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
     >
-      <h2 class="text-2xl font-bold mb-2">Editor</h2>
+      <h2 class="text-2xl mb-2">Editor</h2>
       <ul class="list-disc">
         <li class="ml-8 py-1">
           <a href="https://www.cursor.com/" aria-label="Cursor">Cursor</a>
@@ -58,7 +57,7 @@
     <div
       class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
     >
-      <h2 class="text-2xl font-bold mb-2">Hardware</h2>
+      <h2 class="text-2xl mb-2">Hardware</h2>
       <ul class="list-disc">
         <li class="ml-8 py-1">
           <a href="https://www.apple.com/ca/macbook-pro/"

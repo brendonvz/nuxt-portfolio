@@ -23,7 +23,7 @@ const props = defineProps(["work"]);
       />
     </div>
     <div class="p-6 flex flex-1 flex-col gap-4">
-      <h2 class="text-xl font-bold mb-2 text-[color:var(--foreground)]">
+      <h2 class="text-2xl mb-2">
         {{ item.title }}
       </h2>
       <span

@@ -22,7 +22,7 @@
 		/* Page: body/canvas */
 		--background: var(--color-lightblue);
 		--foreground: var(--color-dark);
-		--heading-color: var(--color-dark);
+		--heading-color: #253f53;
 
 		/* Surfaces: cards, sections, header, footer, nav pill */
 		--element-background: var(--color-white);
@@ -123,15 +123,6 @@ body {
 	color: var(--foreground);
 }
 
-.dark .prose h1,
-.dark .prose h2,
-.dark .prose h3,
-.dark .prose h4,
-.dark .prose h5,
-.dark .prose h6 {
-	color: var(--foreground);
-}
-
 .dark .prose p,
 .dark .prose li,
 .dark .prose blockquote {
@@ -154,15 +145,21 @@ body {
 	margin-top: 0;
 }
 
+/* Override Tailwind Typography defaults for prose headings */
+.prose :where(h1, h2, h3, h4, h5, h6):not(:where(.not-prose, .not-prose *)) {
+	color: var(--heading-color);
+	font-weight: 600;
+}
+
 .logo-section {
 	position: relative;
 	overflow: hidden;
 	background-color: #ffffff;
-	color: #0f4168;
+	color: #253f53;
 }
 
 .dark .logo-section {
-	background-color: #083f61;
+	background-color: #0a2f4a;
 	color: #ffffff;
 }
 

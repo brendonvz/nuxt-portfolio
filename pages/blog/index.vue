@@ -1,6 +1,6 @@
 <template>
   <div class="py-12 md:py-16">
-    <h1 class="text-4xl text-center font-bold">Blog</h1>
+    <h1 class="text-4xl text-center">Blog</h1>
   </div>
 
   <div

@@ -1,6 +1,6 @@
 <template>
   <div class="py-12 md:py-16">
-    <h1 class="text-4xl text-center font-bold">Projects</h1>
+    <h1 class="text-4xl text-center">Projects</h1>
   </div>
 
   <!-- Show loading state while waiting for the data -->
@@ -18,10 +18,15 @@
       class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
     >
       <div class="p-6 flex flex-1 flex-col gap-4">
-        <h2 class="text-2xl font-semibold mb-2">
+        <h2 class="text-2xl mb-2">
           {{ project.name }}
         </h2>
-        <p class="flex-1">{{ project.description }}</p>
+        <p
+          v-if="hasProjectDescription(project.description)"
+          class="flex-1"
+        >
+          {{ project.description?.trim() }}
+        </p>
         <a
           :href="project.url"
           target="_blank"
@@ -85,6 +90,14 @@ const { data, pending, error } = await useAsyncData(
 
 const projectContainer = ref(null);
 let gsapInstance = null;
+
+const hasProjectDescription = (description) => {
+  const normalizedDescription = description?.trim().toLowerCase();
+
+  return Boolean(
+    normalizedDescription && normalizedDescription !== "no description available"
+  );
+};
 
 const getGsap = async () => {
   if (!gsapInstance) {

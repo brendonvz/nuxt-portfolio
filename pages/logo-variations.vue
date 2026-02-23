@@ -1,13 +1,13 @@
 <template>
   <div class="py-12 md:py-16">
-    <h1 class="text-4xl text-center font-bold">Brendon van Zanten</h1>
+    <h1 class="text-4xl text-center">Brendon van Zanten</h1>
   </div>
 
   <div class="w-full pb-12">
     <div class="mb-6 text-sm opacity-80">
       Best fits with your current site are marked <span class="font-semibold">Recommended</span>.
     </div>
-    <h2 class="text-2xl font-semibold mb-4">Light Mode Variations</h2>
+    <h2 class="text-2xl mb-4">Light Mode Variations</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
       <section
         v-for="variant in lightVariants"
@@ -34,7 +34,7 @@
       </section>
     </div>
 
-    <h2 class="text-2xl font-semibold mt-10 mb-4">Dark Mode Variations</h2>
+    <h2 class="text-2xl mt-10 mb-4">Dark Mode Variations</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
       <section
         v-for="variant in darkVariants"
