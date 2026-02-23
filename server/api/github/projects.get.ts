@@ -133,6 +133,7 @@ export default defineEventHandler(async (event) => {
                 }
 
                 if (
+                  line.startsWith('#') ||
                   line.startsWith('![') ||
                   line.startsWith('[![') ||
                   line.startsWith('<img') ||
@@ -141,9 +142,10 @@ export default defineEventHandler(async (event) => {
                   continue;
                 }
 
-                const trimmed = line.replace(/^#+\s*/, '').trim();
+                const trimmed = line.trim();
                 if (
-                  trimmed
+                  trimmed &&
+                  trimmed.length > 20
                 ) {
                   description =
                     trimmed.length > 150 ? `${trimmed.substring(0, 147)}...` : trimmed;
