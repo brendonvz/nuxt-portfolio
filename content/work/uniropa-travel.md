@@ -12,7 +12,7 @@ tag: 'Wordpress'
 featured: true
 ---
 
-Working alongside Goodwell Studio, I rebuilt Uniropa Travel’s WordPress site in Elementor Pro using their new design. The project focused on improving load times, simplifying content management, and refreshing the overall visual experience.
+Working alongside Goodwell Studio, I rebuilt Uniropa Travel's WordPress site in Elementor Pro using their new design created by Goodwell. The project focused on improving load times, simplifying content management, and refreshing the overall visual experience.
 
 ## Key Contributions
 - Developed a new Elementor Pro layout based on updated design assets
