@@ -26,31 +26,19 @@
     <div
       class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
     >
-      <h2 class="text-2xl mb-2">Editor</h2>
+      <h2 class="text-2xl mb-2">Dev Environment</h2>
       <ul class="list-disc">
         <li class="ml-8 py-1">
-          <a href="https://www.cursor.com/" aria-label="Cursor">Cursor</a>
+          Cursor / VS Code
         </li>
         <li class="ml-8 py-1">
-          <a
-            href="https://code.visualstudio.com/"
-            aria-label="Visual Studio Code"
-            >Visual Studio Code</a
-          >
+          Panda Theme + Material Icon Theme
         </li>
         <li class="ml-8 py-1">
-          <a
-            href="https://code.visualstudio.com/"
-            aria-label="Panda Theme + Material Icon Theme"
-            >Panda Theme + Material Icon Theme</a
-          >
+          Codex / OpenCode
         </li>
         <li class="ml-8 py-1">
-          <a
-            href="https://code.visualstudio.com/"
-            aria-label="Extensions include Biome, GitLens and Vue"
-            >Extensions include Biome, GitLens and Vue</a
-          >
+          Ghostty with ZSH
         </li>
       </ul>
     </div>

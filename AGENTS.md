@@ -32,6 +32,8 @@ For code/config changes, run:
 npm run build
 ```
 
+For copy/content-only edits (text changes with no code/config impact), do not run `npm run build` unless explicitly requested.
+
 If performance is requested, run Lighthouse and summarize key metrics:
 - Performance score
 - LCP
@@ -48,4 +50,3 @@ If performance is requested, run Lighthouse and summarize key metrics:
 
 - Keep README simple and practical.
 - Avoid bloated documentation sections unless requested.
-
