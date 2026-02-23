@@ -22,7 +22,7 @@
 		/* Page: body/canvas */
 		--background: var(--color-lightblue);
 		--foreground: var(--color-dark);
-		--heading-color: #22384d;
+		--heading-color: var(--color-dark);
 
 		/* Surfaces: cards, sections, header, footer, nav pill */
 		--element-background: var(--color-white);
@@ -158,11 +158,11 @@ body {
 	position: relative;
 	overflow: hidden;
 	background-color: #ffffff;
-	color: #22384d;
+	color: #11496f;
 }
 
 .dark .logo-section {
-	background-color: #22384d;
+	background-color: #083f61;
 	color: #ffffff;
 }
 
