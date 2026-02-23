@@ -47,7 +47,10 @@
     >
       <h2 class="text-2xl mb-2">Hardware</h2>
       <ul class="list-disc">
-        <li class="ml-8 py-1">
+        <li
+          class="ml-8 py-1 leading-snug md:leading-normal"
+          style="padding-left: 0; text-indent: 0;"
+        >
           <a href="https://www.apple.com/ca/macbook-pro/"
             >MacBook Pro M4 14" (2025) 16GB RAM, 512GB SSD</a
           >

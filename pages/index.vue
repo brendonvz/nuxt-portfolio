@@ -23,8 +23,8 @@
     <section
       class="@container/section about-section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item"
     >
-      <div class="p-6 flex flex-1 flex-col gap-4">
-        <div class="mb-6">
+      <div class="p-6 flex flex-1 flex-col gap-4 h-full">
+        <div class="mb-3 sm:mb-4">
           <span
             class="bg-[color:var(--color-red)] text-white text-sm font-medium px-4 py-1 rounded-full"
             >About</span
@@ -180,7 +180,7 @@
 
     <!-- Services Section -->
     <section
-      class="@container/section services-section flex bg-[color:var(--element-background)] flex-col max-xl:order-last col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
+      class="@container/section services-section flex bg-[color:var(--element-background)] flex-col max-xl:order-last col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-auto md:aspect-square xl:aspect-square"
     >
       <div class="p-6 flex flex-1 flex-col gap-4">
         <div class="mb-6">
@@ -189,7 +189,7 @@
             >Services</span
           >
         </div>
-        <p class="text-pretty max-w-prose">
+        <p class="text-pretty w-full max-w-none md:max-w-prose text-base leading-relaxed">
           I build modern websites and full-stack web applications, including custom WordPress and Webflow solutions, plus ongoing website maintenance and support.
         </p>
       </div>
