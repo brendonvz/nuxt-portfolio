@@ -190,7 +190,7 @@
           >
         </div>
         <p class="text-pretty max-w-prose">
-          Full-stack web development, custom WordPress and Webflow solutions, and ongoing maintenance and hosting for modern, responsive sites and apps.
+          I build modern websites and full-stack web applications, including custom WordPress and Webflow solutions, plus ongoing website maintenance and support.
         </p>
       </div>
     </section>
