@@ -20,12 +20,34 @@ useHead({
     },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
-    { rel: "dns-prefetch", href: "https://api.github.com" },
   ],
+  script: import.meta.dev
+    ? [
+        {
+          innerHTML:
+            "navigator.serviceWorker?.getRegistrations?.().then((registrations)=>registrations.forEach((registration)=>registration.unregister())).catch(()=>{});window.caches?.keys?.().then((keys)=>keys.forEach((key)=>window.caches.delete(key))).catch(()=>{});",
+          tagPosition: "bodyClose",
+        },
+      ]
+    : [],
 });
 
 // Register service worker for caching
 onMounted(() => {
+  if (import.meta.dev) {
+    navigator.serviceWorker
+      ?.getRegistrations()
+      .then((registrations) =>
+        Promise.all(registrations.map((registration) => registration.unregister()))
+      )
+      .catch(() => {});
+    window.caches
+      ?.keys()
+      .then((keys) => Promise.all(keys.map((key) => window.caches.delete(key))))
+      .catch(() => {});
+    return;
+  }
+
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js").catch(() => {});
   }

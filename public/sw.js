@@ -1,7 +1,7 @@
-const APP_CACHE = "brendon-portfolio-app-v2";
-const ASSET_CACHE = "brendon-portfolio-assets-v2";
+const APP_CACHE = "brendon-portfolio-app-v3";
+const ASSET_CACHE = "brendon-portfolio-assets-v3";
 
-const APP_SHELL_ROUTES = ["/", "/blog", "/projects", "/uses", "/work"];
+const APP_SHELL_ROUTES = ["/"];
 const OFFLINE_FALLBACK = "/";
 
 self.addEventListener("install", (event) => {
