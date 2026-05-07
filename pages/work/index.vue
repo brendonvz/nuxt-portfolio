@@ -12,7 +12,7 @@
 import { onMounted } from "vue";
 
 useSeoMeta({
-  title: "Brendon van Zanten | Client Work",
+  title: "Brendon van Zanten - Client Work",
   description: "Explore the web development projects I've completed for clients. Custom websites, web applications, and digital solutions.",
   keywords: "web development projects, client work, custom websites, web applications, portfolio",
   ogTitle: "Brendon van Zanten - Client Work",
