@@ -36,7 +36,7 @@
             About
           </span>
           <p class="font-display text-[20px] leading-[1.4] mt-3 tracking-[-0.01em] text-[color:var(--foreground)]">
-            Software Engineer based in <em class="italic text-accent">Niagara, Ontario</em>, shipping full-stack applications since 2015. I enjoy building dynamic front ends with Vue &amp; Nuxt, and reliable back ends with Node, PHP and .NET.
+            Software Engineer based in <em class="italic text-accent">Niagara, Ontario</em>, shipping full-stack applications since 2015. I enjoy building dynamic front ends with Vue &amp; Nuxt, and reliable back ends with Node and .NET.
           </p>
         </div>
         <span class="absolute right-5 -bottom-1 font-display italic text-[130px] leading-none pointer-events-none transition-transform duration-700 group-hover:-rotate-12 opacity-[0.08] text-accent">&amp;</span>
@@ -74,7 +74,7 @@
           <span class="w-1.5 h-1.5 rounded-full bg-[#F4C95D] pulse-dot shrink-0" aria-hidden="true" />
           <span class="font-mono text-[11px] tracking-[0.12em] uppercase opacity-60 text-[color:var(--foreground)]">Available for work</span>
         </div>
-        <p class="font-display text-[26px] leading-[1.2] text-[color:var(--foreground)]">Let's build something <em class="italic text-accent">great</em>.</p>
+        <p class="font-display text-[26px] leading-[1.2] text-[color:var(--foreground)]">Let's build something <em class="italic text-accent">great</em><span class="text-accent">.</span></p>
       </div>
       <div
         class="w-12 h-12 shrink-0 ml-6 rounded-full flex items-center justify-center text-white transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
