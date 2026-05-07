@@ -35,7 +35,7 @@
             <span class="w-1.5 h-1.5 rounded-full bg-white inline-block" />
             About
           </span>
-          <p class="font-display text-[20px] leading-[1.4] mt-3 tracking-[-0.01em] text-[color:var(--foreground)]">
+          <p class="font-display text-[20px] leading-[1.4] mt-3 tracking-[-0.01em] text-[color:var(--foreground)] text-pretty">
             Software Engineer based in <em class="italic text-accent">Niagara, Ontario</em>, shipping full-stack applications since 2015. I enjoy building dynamic front ends with Vue &amp; Nuxt, and reliable back ends with Node and .NET.
           </p>
         </div>
