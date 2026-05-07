@@ -182,7 +182,7 @@ const jobs = [
 ]
 
 useSeoMeta({
-  title: "Brendon van Zanten | Home",
+  title: "Brendon van Zanten - Software Engineer",
   description: "Software Engineer with 10+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. View my work and get in touch.",
   keywords: "software engineer, web developer, vue.js, nuxt.js, wordpress, webflow, javascript, php, ontario, niagara",
   ogTitle: "Brendon van Zanten - Software Engineer",
