@@ -1,7 +1,14 @@
 <template>
-  <div class="py-12 md:py-16">
-    <h1 class="text-4xl text-center">{{ data.title }}</h1>
+  <div class="mb-6">
+    <NuxtLink
+      to="/work"
+      class="inline-flex items-center gap-1.5 text-[13px] font-medium opacity-60 hover:opacity-100 transition-opacity text-[color:var(--foreground)]"
+    >
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
+      Work
+    </NuxtLink>
   </div>
+  <PageHero :title="data.title" />
 
   <div
     ref="gridContainer"
@@ -15,7 +22,7 @@
       <!-- Main Logo Section -->
       <section
         v-if="data.logo"
-        class="@container/section client-logo-section flex flex-col gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square"
+        class="@container/section tile-base client-logo-section flex flex-col gap-2 section-item aspect-square"
         :style="{ backgroundColor: data.logoBg || 'var(--element-background)' }"
       >
         <div class="flex flex-1 items-center justify-center p-6">
@@ -32,7 +39,7 @@
       <!-- Goodwell Logo Section -->
       <section
         v-if="data.goodwell"
-        class="@container/section goodwell-logo-section flex flex-col gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square"
+        class="@container/section tile-base goodwell-logo-section flex flex-col gap-2 section-item aspect-square"
         :style="{ backgroundColor: data.goodwellBg || '#ECE9E1' }"
       >
         <a
@@ -54,7 +61,7 @@
       <!-- Studio Mined Logo Section -->
       <section
         v-if="data.studioMined"
-        class="@container/section studio-mined-logo-section flex flex-col gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square"
+        class="@container/section tile-base studio-mined-logo-section flex flex-col gap-2 section-item aspect-square"
         :style="{ backgroundColor: data.studioMinedBg || '#edd710' }"
       >
         <a
@@ -81,12 +88,12 @@
     >
       <!-- Writeup Section -->
       <section
-        class="@container/section client-writeup-section bg-[color:var(--element-background)] p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item self-start w-full"
+        class="@container/section tile-base tile client-writeup-section bg-[color:var(--element-background)] p-2 section-item self-start w-full"
       >
         <div class="p-6 flex flex-col gap-4">
           <div v-if="data.tag" class="mb-6">
             <span
-              class="bg-[color:var(--color-red)] text-white text-sm font-medium px-4 py-1 rounded-full"
+              class="bg-accent text-white text-sm font-medium px-4 py-1 rounded-full"
             >
               {{ data.tag }}
             </span>
@@ -122,15 +129,17 @@
       <!-- Screenshot Section -->
       <section
         v-if="data.screenshot"
-        class="@container/section screenshot-section bg-[color:var(--element-background)] ring-1 ring-[color:var(--border-color)] rounded-4xl section-item overflow-hidden w-full"
+        class="@container/section tile-base tile screenshot-section bg-[color:var(--element-background)] section-item w-full"
       >
-        <img
-          :src="`/images/work/${data.screenshot}`"
-          :alt="`${data.title} screenshot`"
-          loading="lazy"
-          decoding="async"
-          class="w-full h-auto object-cover"
-        />
+        <div class="aspect-video w-full">
+          <img
+            :src="`/images/work/${data.screenshot}`"
+            :alt="`${data.title} screenshot`"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover"
+          />
+        </div>
       </section>
     </div>
   </div>
@@ -144,6 +153,10 @@ const { path } = useRoute();
 const { data } = await useAsyncData(`content-${path}`, () =>
   queryContent().where({ _path: path }).findOne()
 );
+
+if (!data.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Page not found' });
+}
 
 // SEO
 useSeoMeta({
@@ -161,9 +174,6 @@ const gridContainer = ref(null);
 
 onMounted(async () => {
   const { gsap } = await import("gsap");
-
-  // Make the container visible immediately
-  gsap.set(gridContainer.value, { visibility: "visible" });
 
   // Animate the sections
   gsap.fromTo(

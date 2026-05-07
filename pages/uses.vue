@@ -1,16 +1,15 @@
 <template>
-  <div class="py-12 md:py-16">
-    <h1 class="text-4xl text-center">Uses</h1>
-  </div>
+  <PageHero title="Uses" />
 
   <div
     ref="usesContainer"
     class="w-full grid grid-cols-12 2xl:auto-rows-fr gap-4"
+    style="visibility: hidden;"
   >
     <div
-      class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
+      class="@container/section tile-base tile flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 section-item"
     >
-      <h2 class="text-2xl mb-2">This Website</h2>
+      <h2 class="font-display text-2xl mb-2 text-[color:var(--foreground)]">This Website</h2>
       <ul class="list-disc">
         <li class="ml-8 py-1"><a href="https://vuejs.org/">Vue 3</a></li>
         <li class="ml-8 py-1"><a href="https://nuxt.com/">Nuxt 3</a></li>
@@ -24,9 +23,9 @@
     </div>
 
     <div
-      class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
+      class="@container/section tile-base tile flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 section-item"
     >
-      <h2 class="text-2xl mb-2">Dev Environment</h2>
+      <h2 class="font-display text-2xl mb-2 text-[color:var(--foreground)]">Dev Environment</h2>
       <ul class="list-disc">
         <li class="ml-8 py-1">
           Cursor / VS Code
@@ -43,9 +42,9 @@
       </ul>
     </div>
     <div
-      class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
+      class="@container/section tile-base tile flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 section-item"
     >
-      <h2 class="text-2xl mb-2">Hardware</h2>
+      <h2 class="font-display text-2xl mb-2 text-[color:var(--foreground)]">Hardware</h2>
       <ul class="list-disc">
         <li
           class="ml-8 py-1 leading-snug md:leading-normal"
@@ -71,50 +70,46 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-// SEO
+const usesContainer = ref(null);
+
 useSeoMeta({
   title: "Brendon van Zanten | Uses",
-  description:
-    "Tools, software, and hardware I use for web development. My development setup, favorite VS Code extensions, and productivity tools.",
-  keywords:
-    "developer tools, vs code setup, web development tools, productivity setup",
-  // Open Graph tags for Facebook, LinkedIn, etc.
+  description: "Tools, software, and hardware I use for web development. My development setup, favorite VS Code extensions, and productivity tools.",
+  keywords: "developer tools, vs code setup, web development tools, productivity setup",
   ogTitle: "Brendon van Zanten - Uses",
   ogDescription: "Tools, software, and hardware I use for web development. My development setup, favorite VS Code extensions, and productivity tools.",
-  ogImage: "/images/profilepic.jpg",
   ogImageAlt: "Developer Tools and Setup - Brendon van Zanten",
-  ogType: "website",
   ogUrl: "https://brendonvanzanten.com/uses",
-  ogSiteName: "Brendon van Zanten",
-  // Twitter Card tags
-  twitterCard: "summary_large_image",
-  twitterSite: "@brendon_vz",
-  twitterCreator: "@brendon_vz",
   twitterTitle: "Brendon van Zanten - Uses",
   twitterDescription: "Tools, software, and hardware I use for web development. My development setup and productivity tools.",
-  twitterImage: "/images/profilepic.jpg",
   twitterImageAlt: "Developer Tools and Setup - Brendon van Zanten",
 });
 
-const usesContainer = ref(null);
-
 onMounted(async () => {
-  const { gsap } = await import("gsap");
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  gsap.fromTo(
-    ".section-item",
-    {
-      opacity: 0,
-      y: 20,
-    },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.4,
-      ease: "back.out(1.2)",
-      stagger: 0.08,
-      delay: 0.05,
-    }
-  );
+  if (prefersReduced) {
+    usesContainer.value.style.visibility = 'visible';
+    return;
+  }
+
+  const fallback = setTimeout(() => {
+    if (usesContainer.value) usesContainer.value.style.visibility = 'visible';
+  }, 1000);
+
+  const { gsap } = await import("gsap");
+  clearTimeout(fallback);
+
+  const children = Array.from(usesContainer.value.children);
+  gsap.set(children, { opacity: 0, y: 20 });
+  gsap.set(usesContainer.value, { visibility: 'visible' });
+  gsap.to(children, {
+    opacity: 1,
+    y: 0,
+    duration: 0.4,
+    ease: "back.out(1.2)",
+    stagger: 0.08,
+    delay: 0.05,
+  });
 });
 </script>

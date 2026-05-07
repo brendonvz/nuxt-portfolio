@@ -7,7 +7,7 @@ const props = defineProps(["work"]);
     v-for="item in props.work"
     :key="item.slug"
     :to="item._path"
-    class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-4 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
+    class="@container/section tile-base tile flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-4 xl:row-span-3 gap-2 section-item"
   >
     <div
       v-if="item.logo"
@@ -23,11 +23,11 @@ const props = defineProps(["work"]);
       />
     </div>
     <div class="p-6 flex flex-1 flex-col gap-4">
-      <h2 class="text-2xl mb-2">
+      <h2 class="font-display text-2xl mb-2 text-[color:var(--foreground)]">
         {{ item.title }}
       </h2>
       <span
-        class="w-fit inline-block bg-[color:var(--element-active-background)] hover:opacity-80 text-[color:var(--element-text-active)] py-2 px-6 rounded-full transition-all duration-200 self-start font-semibold"
+        class="w-fit inline-block bg-[color:var(--element-active-background)] hover:opacity-80 text-[color:var(--element-text-active)] py-2 px-6 rounded-full transition-all duration-200 self-start font-semibold font-sans text-[14px]"
       >
         View Project
       </span>

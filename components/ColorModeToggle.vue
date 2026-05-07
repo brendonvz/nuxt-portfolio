@@ -5,6 +5,7 @@
   >
     <button
       class="flex items-center bg-[color:var(--element-background)] rounded-full p-2 shadow-xl hover:shadow-2xl transition-shadow duration-300 relative"
+      :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
       @click="toggleColorMode"
     >
       <!-- Sliding bubble background -->
@@ -16,33 +17,28 @@
         }"
       ></div>
 
-      <span
-        ref="sunRef"
-        class="p-2 rounded-full transition-all duration-300 relative z-10"
-      >
-        <Icon
-          name="ph:sun-bold"
-          class="w-5 h-5 text-[color:var(--foreground)]"
-        />
+      <span ref="sunRef" class="p-2 rounded-full transition-all duration-300 relative z-10">
+        <svg class="w-5 h-5 text-[color:var(--foreground)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
       </span>
-      <span
-        ref="moonRef"
-        class="p-2 rounded-full transition-all duration-300 relative z-10"
-      >
-        <Icon
-          name="ph:moon-bold"
-          class="w-5 h-5 text-[color:var(--foreground)]"
-        />
+      <span ref="moonRef" class="p-2 rounded-full transition-all duration-300 relative z-10">
+        <svg class="w-5 h-5 text-[color:var(--foreground)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
       </span>
     </button>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch, nextTick } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount, watch, nextTick } from "vue";
 
 const colorMode = useColorMode();
 const isDark = computed(() => colorMode.value === "dark");
+
+let currentFaviconUrl = null;
 
 const sunRef = ref(null);
 const moonRef = ref(null);
@@ -75,9 +71,10 @@ const updateFavicon = (isDarkMode) => {
       </svg>
     `;
 
+    if (currentFaviconUrl) URL.revokeObjectURL(currentFaviconUrl);
     const blob = new Blob([svgContent], { type: 'image/svg+xml' });
-    const url = URL.createObjectURL(blob);
-    favicon.href = url;
+    currentFaviconUrl = URL.createObjectURL(blob);
+    favicon.href = currentFaviconUrl;
   }
 };
 
@@ -124,6 +121,10 @@ onMounted(async () => {
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
   }
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkScreenSize);
 });
 
 watch(isDark, async () => {

@@ -1,12 +1,34 @@
 <template>
-  <div class="py-12 md:py-16">
-    <h1 class="text-4xl text-center">Brendon van Zanten</h1>
-  </div>
+  <PageHero title="Logo Variations" />
 
   <div class="w-full pb-12">
     <div class="mb-6 text-sm opacity-80">
       Best fits with your current site are marked <span class="font-semibold">Recommended</span>.
     </div>
+
+    <h2 class="text-2xl mb-4">Design System Palette</h2>
+    <p class="text-sm opacity-70 mb-4">Options built from your design tokens — ready to drop into <code class="font-mono">.logo-section</code>.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-10">
+      <section
+        v-for="variant in designSystemVariants"
+        :key="variant.name"
+        class="aspect-square rounded-4xl ring-1 ring-[color:var(--border-color)] p-4 flex flex-col"
+        :style="{ background: variant.bg }"
+      >
+        <div class="flex-1 flex items-center justify-center">
+          <LogoMark
+            class="w-full h-full max-w-[44%] max-h-[44%] object-contain"
+            :style="{ color: variant.mark }"
+          />
+        </div>
+        <div class="text-xs leading-tight rounded-xl p-2" :style="{ background: variant.labelBg, color: variant.labelText }">
+          <p class="font-semibold">{{ variant.name }}</p>
+          <p class="opacity-70 font-mono mt-0.5">BG {{ variant.bg }}</p>
+          <p class="opacity-70 font-mono">Mark {{ variant.mark }}</p>
+        </div>
+      </section>
+    </div>
+
     <h2 class="text-2xl mb-4">Light Mode Variations</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
       <section
@@ -68,6 +90,19 @@ useSeoMeta({
   robots: 'noindex, nofollow, noarchive, nosnippet',
   googlebot: 'noindex, nofollow, noarchive, nosnippet',
 });
+
+const designSystemVariants = [
+  // Light treatments
+  { name: 'Cream + Ink (Light)',   bg: '#F5F1EA', mark: '#1B2332', labelBg: 'rgba(0,0,0,0.08)', labelText: '#1B2332' },
+  { name: 'Card + Ink (Light)',    bg: '#FFFDF9', mark: '#1B2332', labelBg: 'rgba(0,0,0,0.08)', labelText: '#1B2332' },
+  { name: 'Butter + Ink (Light)', bg: '#F4C95D', mark: '#1B2332', labelBg: 'rgba(0,0,0,0.12)', labelText: '#1B2332' },
+  { name: 'Accent + Cream (Light)',bg: '#E96A4E', mark: '#F5F1EA', labelBg: 'rgba(0,0,0,0.15)', labelText: '#F5F1EA' },
+  // Dark treatments
+  { name: 'Ink + Cream (Dark)',    bg: '#1B2332', mark: '#F5F1EA', labelBg: 'rgba(255,255,255,0.08)', labelText: '#F5F1EA' },
+  { name: 'Ink Soft + Cream (Dark)', bg: '#2A3446', mark: '#F5F1EA', labelBg: 'rgba(255,255,255,0.08)', labelText: '#F5F1EA' },
+  { name: 'Butter + Ink (Dark)',  bg: '#F4C95D', mark: '#1B2332', labelBg: 'rgba(0,0,0,0.12)', labelText: '#1B2332' },
+  { name: 'Accent + Cream (Dark)',bg: '#E96A4E', mark: '#F5F1EA', labelBg: 'rgba(0,0,0,0.15)', labelText: '#F5F1EA' },
+];
 
 const lightPalette = [
   { name: "Navy", color: "#0f4168", recommended: true },
