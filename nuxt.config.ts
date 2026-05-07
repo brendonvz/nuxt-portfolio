@@ -22,9 +22,6 @@ export default defineNuxtConfig({
 		compressPublicAssets: true,
 		minify: true,
 		preset: 'netlify',
-		experimental: {
-			wasm: true
-		},
 		esbuild: {
 			options: {
 				target: 'es2020'
@@ -44,8 +41,6 @@ export default defineNuxtConfig({
 
 	modules: [
 		"@nuxt/content",
-		"@vueuse/nuxt",
-		"nuxt-icon",
 		"@nuxtjs/color-mode",
 		"@nuxtjs/seo",
 	],
@@ -61,6 +56,10 @@ export default defineNuxtConfig({
 		name: "Brendon van Zanten",
 		description: "Full Stack Web Developer specializing in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
 		defaultLocale: "en",
+	},
+
+	sitemap: {
+		exclude: ['/logo-variations'],
 	},
 
 	app: {
@@ -85,13 +84,6 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		server: {
 			githubToken: process.env.GITHUB_TOKEN,
-		},
-		public: {
-			siteUrl: "https://brendonvanzanten.com",
-			siteName: "Brendon van Zanten",
-			siteDescription:
-				"Full Stack Web Developer specializing in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
-			language: "en",
 		},
 	},
 

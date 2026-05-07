@@ -5,48 +5,182 @@
 /* Use class-based dark mode so dark: matches Nuxt color mode (.dark on html) */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ========================================
+   DESIGN TOKENS (from nuxt-portfolio-design)
+   ======================================== */
+@theme {
+  --color-cream: #F5F1EA;
+  --color-cream-2: #EEE7DB;
+  --color-ink: #1B2332;
+  --color-muted: #6B6257;
+  --color-accent: #E96A4E;
+  --color-butter: #F4C95D;
+  --font-display: 'Instrument Serif', serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+
+  --radius-tile: 28px;
+}
+
+/* Runtime-tweakable tokens (can be overridden by Tweaks panel) */
+:root {
+  --tw-color-card: #FFFDF9;
+  --tw-line:       rgba(27, 35, 50, 0.08);
+
+  /* Inverted tile colors (Services, Stack) - flip in dark mode */
+  --tile-dark-bg:    #F5F1EA;
+  --tile-dark-text:  #1B2332;
+  --tile-light-bg:   #F4C95D;
+  --tile-light-text: #1B2332;
+}
+
+/* ========================================
+   MOTION PRIMITIVES (from nuxt-portfolio-design)
+   ======================================== */
+@keyframes letterIn { to { opacity: 1; transform: translateY(0); } }
+@keyframes vtFadeOut { to { opacity: 0; transform: translateY(-6px); } }
+
+/* Page transitions: outgoing slides up and fades, incoming is instant so GSAP handles tile entrance */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: 180ms cubic-bezier(.4, 0, 1, 1) both vtFadeOut;
+  }
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+@keyframes drawLogo {
+  0%   { stroke-dashoffset: 6400; fill-opacity: 0; }
+  65%  { stroke-dashoffset: 0;    fill-opacity: 0; }
+  100% { stroke-dashoffset: 0;    fill-opacity: 1; }
+}
+@keyframes wiggle {
+  0%   { transform: rotate(0) scale(1); }
+  25%  { transform: rotate(-6deg) scale(1.04); }
+  50%  { transform: rotate(5deg) scale(1.04); }
+  75%  { transform: rotate(-3deg) scale(1.02); }
+  100% { transform: rotate(0) scale(1); }
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(244,201,93,0.8); }
+  70%  { box-shadow: 0 0 0 8px rgba(244,201,93,0); }
+  100% { box-shadow: 0 0 0 0 rgba(244,201,93,0); }
+}
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.4em);
+  animation: letterIn 0.7s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.tile-logo-path {
+  stroke-dasharray: 6400;
+  stroke-dashoffset: 6400;
+  fill-opacity: 0;
+  animation: drawLogo 2.6s cubic-bezier(.7,0,.3,1) 0.3s forwards;
+}
+.wiggle-on-hover:hover svg { animation: wiggle 0.9s cubic-bezier(.2,.8,.2,1); }
+.pulse-dot { animation: pulse 2.4s ease-out infinite; }
+.marquee-track { animation: scroll 26s linear infinite; }
+
+/* Structural base — every grid tile */
+.tile-base {
+  position: relative;
+  border-radius: var(--radius-tile);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s;
+}
+.tile-base:hover,
+.section-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 0 rgba(27,35,50,0.05), 0 30px 60px -20px rgba(27,35,50,0.25);
+}
+
+/* Card variant — adds background and resting shadow */
+.tile {
+  background: var(--tw-color-card);
+  box-shadow: 0 1px 0 rgba(27,35,50,0.04), 0 2px 6px rgba(27,35,50,0.04);
+}
+
+/* Legacy — used by Post, blog/work pages */
+.section-item {
+  transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s;
+}
+
+/* Dark mode tile colors */
+.dark .tile {
+  background: var(--element-background);
+}
+
+
+/* Marquee mask */
+.marquee-mask {
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+
+/* ========================================
+   EXISTING PORTFOLIO STYLES
+   ======================================== */
 @layer base {
 	:root {
 		font-family: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont,
 			"Segoe UI", Roboto, sans-serif;
 
-		/* Raw palette */
-		--color-white: #ffffff;
-		--color-black: #000000;
-		--color-dark: #1a1a1a;
-		--color-lightblue: #ebf1f4;
-		--color-darkblue: #23272f;
-		--color-darkgray: #1c1c1c;
-		--color-red: #d91200;
-
-		/* Page: body/canvas */
-		--background: var(--color-lightblue);
-		--foreground: var(--color-dark);
+		/* Page canvas */
+		--background:    #EDEEF2;
+		--foreground:    #1a1a1a;
 		--heading-color: #253f53;
 
-		/* Surfaces: cards, sections, header, footer, nav pill */
-		--element-background: var(--color-white);
-		--element-text: var(--color-dark);
+		/* Tile / card surfaces */
+		--surface-bg: #ffffff;
+		--surface-fg: #1a1a1a;
 
-		/* Active/primary: buttons, selected nav item, toggle bubble */
-		--element-active-background: var(--color-lightblue);
-		--element-text-active: var(--color-dark);
+		--element-background:        var(--surface-bg);
+		--element-active-background: var(--background);
+		--element-text-active:       var(--foreground);
 
 		/* Borders */
-		--border-color: var(--color-dark);
-		--experience-border-color: var(--color-dark);
+		--border-color: var(--foreground);
+
+		/* Inverted colors for buttons that flip between modes */
+		--color-alt-bg:   var(--foreground);
+		--color-alt-text: #ffffff;
+
+		--color-hover: var(--color-accent);
 	}
 
 	.dark {
-		--background: var(--color-darkblue);
-		--foreground: var(--color-white);
-		--heading-color: var(--foreground);
-		--element-background: var(--color-darkgray);
-		--element-text: var(--color-white);
-		--element-active-background: var(--color-darkblue);
-		--element-text-active: var(--color-white);
-		--border-color: var(--color-black);
-		--experience-border-color: var(--color-white);
+		/* Page canvas */
+		--background:    #1A1C1F;
+		--foreground:    #F5F1EA;
+		--heading-color: #F5F1EA;
+
+		/* Tile / card surfaces */
+		--surface-bg: #181818;
+		--surface-fg: #F5F1EA;
+
+		--element-background:        var(--surface-bg);
+		--element-active-background: var(--background);
+		--element-text-active:       var(--foreground);
+
+		--border-color: #000000;
+
+		--color-alt-bg:   var(--foreground);
+		--color-alt-text: #1a1a1a;
+
+		--color-hover: var(--color-accent);
+
+		/* Night theme design token flips */
+		--tw-color-card: #181818;
+		--tw-line:       rgba(255, 253, 249, 0.08);
+
+		/* Tile-specific flips */
+		--tile-dark-bg:    #1B2332;
+		--tile-dark-text:  #F5F1EA;
+		--tile-light-bg:   #F4C95D;
+		--tile-light-text: #1B2332;
 	}
 
 	/* Heading fonts */
@@ -66,6 +200,11 @@
 		font-weight: 700;
 	}
 
+	/* Display font utility */
+	.font-display {
+		font-family: var(--font-display);
+	}
+
 	/* Body text fonts */
 	p,
 	li,
@@ -75,8 +214,8 @@
 			"Segoe UI", Roboto, sans-serif;
 	}
 
-	/* Red tags use Inter font */
-	.bg-\[color\:var\(--color-red\)\] {
+	/* Accent badge tags use Inter font */
+	.bg-accent {
 		font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
 			"Segoe UI", Roboto, sans-serif;
 	}
@@ -92,15 +231,6 @@
 		text-indent: -1rem;
 	}
 
-	/* Ensure section hover effects work */
-	.section-item-scale:hover {
-		transform: scale(1.01) !important;
-	}
-
-	.section-item-scale {
-		transition: transform 0.1s ease !important;
-		transform-origin: center !important;
-	}
 }
 
 /* Add this to ensure the body background changes */
@@ -153,18 +283,19 @@ body {
 .prose :where(h1, h2, h3, h4, h5, h6):not(:where(.not-prose, .not-prose *)) {
 	color: var(--heading-color);
 	font-weight: 600;
+	font-family: var(--font-display);
 }
 
 .logo-section {
 	position: relative;
 	overflow: hidden;
-	background-color: #ffffff;
-	color: #253f53;
+	background-color: #E96A4E;
+	color: #F5F1EA;
 }
 
 .dark .logo-section {
-	background-color: #0a2f4a;
-	color: #ffffff;
+	background-color: #E96A4E;
+	color: #F5F1EA;
 }
 
 .logo-section::before {
@@ -186,45 +317,134 @@ body {
 	transform: translateY(-0.7px) scale(1.022);
 }
 
-@media (max-width: 1152px) {
+@media (max-width: 1279px) {
 	.logo-section {
 		order: 0;
 	}
 	.about-section {
 		order: 1;
 	}
-	.profilepic-section {
+	.experience-section {
 		order: 2;
 	}
-	.experience-section {
+	.profilepic-section {
+		order: 3;
+	}
+	.linkedin-section {
 		order: 4;
 	}
 	.services-section {
 		order: 5;
 	}
-	.linkedin-section {
-		order: 3;
-	}
-	.instagram-section {
+	.stack-section {
 		order: 6;
 	}
-	.contact-section {
+	.featured-work-section {
 		order: 7;
 	}
-	.featured-work-section {
+	.instagram-section {
 		order: 8;
+	}
+	.contact-section {
+		order: 9;
+	}
+	.resume-section {
+		order: 10;
 	}
 }
 
-/* Mobile reordering - only when sections actually stack (container-based) */
-@media (max-width: 639px) {
-	.logo-section {
-		order: 0;
-	}
-	.about-section {
-		order: 1;
+/* Error page — standalone, no SiteHeader. Styles here so they apply on CSR navigation too. */
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+.error-wrap {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.error-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+}
+.error-logo {
+  font-size: 15px;
+  letter-spacing: 0.025em;
+  font-weight: 500;
+  color: var(--foreground);
+  text-decoration: none;
+  font-family: var(--font-sans);
+}
+.error-logo:hover { opacity: 0.7; }
+.error-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.error-code {
+  font-family: var(--font-display);
+  font-size: clamp(120px, 20vw, 220px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  color: var(--color-accent);
+  opacity: 0.15;
+  user-select: none;
+  pointer-events: none;
+}
+.error-heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--foreground);
+  margin-top: -2rem;
+  margin-bottom: 0.75rem;
+}
+.error-message {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--foreground);
+  opacity: 0.6;
+  max-width: 24rem;
+  margin-bottom: 1.5rem;
+}
+.error-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: var(--color-accent);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.error-btn:hover { opacity: 0.75; }
+
+/* Mobile: sizing + order overrides from tablet */
+@media (max-width: 767px) {
+	.grid-container > * {
+		min-height: 220px;
 	}
 	.profilepic-section {
+		min-height: 0;
 		order: 2;
 	}
 	.experience-section {
@@ -235,14 +455,5 @@ body {
 	}
 	.linkedin-section {
 		order: 5;
-	}
-	.instagram-section {
-		order: 6;
-	}
-	.contact-section {
-		order: 7;
-	}
-	.featured-work-section {
-		order: 8;
 	}
 }

@@ -1,15 +1,24 @@
 <template>
-  <div class="py-12 md:py-16">
-    <h1 class="text-4xl text-center">Brendon van Zanten</h1>
-  </div>
+  <PageHero
+    title="Brendon van Zanten"
+    subtitle="Software engineer · Niagara, ON"
+    :show-dot="true"
+    :animated="true"
+    :title-parts="{
+      line1: 'Brendon'.split(''),
+      line2: 'van '.split(''),
+      line3: 'Zanten.'.split('')
+    }"
+  />
 
   <div
     ref="gridContainer"
     class="@container w-full grid grid-cols-12 gap-4 grid-container"
+    style="visibility: hidden;"
   >
     <!-- Logo Section -->
     <section
-      class="@container/section logo-section flex flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
+      class="@container/section tile-base logo-section wiggle-on-hover flex flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 md:aspect-square"
     >
       <div class="flex flex-1 items-center justify-center p-6">
         <LogoMark
@@ -20,228 +29,93 @@
     </section>
 
     <!-- About Section -->
-    <section
-      class="@container/section about-section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item"
-    >
-      <div class="p-6 flex flex-1 flex-col gap-4 h-full">
-        <div class="mb-3 sm:mb-4">
-          <span
-            class="bg-[color:var(--color-red)] text-white text-sm font-medium px-4 py-1 rounded-full"
-            >About</span
-          >
+    <div class="tile-base tile col-span-full md:col-span-6 md:aspect-square xl:col-span-6 xl:row-span-3 xl:aspect-auto group about-section">
+      <div class="p-6 h-full flex items-center relative overflow-hidden">
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wider uppercase text-white bg-accent">
+            <span class="w-1.5 h-1.5 rounded-full bg-white inline-block" />
+            About
+          </span>
+          <p class="font-display text-[22px] leading-[1.3] mt-3 tracking-[-0.01em] text-[color:var(--foreground)]">
+            Software Engineer based in <em class="italic text-accent">Niagara, Ontario</em>, shipping full-stack applications since 2015. I enjoy building dynamic front ends with Vue &amp; Nuxt, and reliable back ends with Node, PHP and .NET.
+          </p>
         </div>
-        <p class="text-pretty max-w-prose">
-          I am a Software Engineer based in Niagara, Ontario who has been
-          creating full-stack applications since 2015.
-        </p>
-        <p class="text-pretty max-w-prose">
-          I enjoy building dynamic, user-friendly interfaces with Vue and Nuxt. On the back end, I develop reliable and scalable systems using technologies like Node.js, PHP, and .NET.
-        </p>
+        <span class="absolute right-5 -bottom-1 font-display italic text-[130px] leading-none pointer-events-none transition-transform duration-700 group-hover:-rotate-12 opacity-[0.08] text-accent">&amp;</span>
       </div>
-    </section>
+    </div>
 
     <!-- Profile Pic Section -->
     <section
-      class="@container/section profilepic-section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item 6xl:aspect-square"
+      class="@container/section tile-base profilepic-section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 aspect-square"
     >
-      <img
-        src="/images/profilepic.jpg"
-        alt="Brendon van Zanten profile picture"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-        width="768"
-        height="768"
-        class="w-full h-full object-cover rounded-4xl"
-      />
+      <picture>
+        <source srcset="/images/profilepic.avif" type="image/avif" />
+        <source srcset="/images/profilepic.webp" type="image/webp" />
+        <img
+          src="/images/profilepic.jpg"
+          alt="Brendon van Zanten profile picture"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          width="768"
+          height="768"
+          class="w-full h-full object-cover"
+        />
+      </picture>
     </section>
 
-    <!-- LinkedIn Section -->
-    <section
-      class="@container/section linkedin-section flex bg-[#0077b5] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
-    >
-      <a
-        href="https://ca.linkedin.com/in/brendon-van-zanten-13121559"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex flex-1 items-center justify-center"
-        aria-label="LinkedIn"
-      >
-        <Icon
-          name="entypo-social:linkedin-with-circle"
-          size="4rem"
-          class="text-white"
-        />
-      </a>
-    </section>
 
     <!-- Experience Section -->
-    <section
-      class="@container/section experience-section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-6 gap-2 p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item"
-    >
-      <div class="p-6 flex flex-1 flex-col">
-        <div class="mb-6">
-          <span
-            class="bg-[color:var(--color-red)] text-white text-sm font-medium px-4 py-1 rounded-full"
-            >Experience</span
-          >
-        </div>
-
-        <div class="space-y-6 lg:space-y-8 mb-6">
-          <div class="flex flex-col gap-3 lg:gap-2">
-            <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
-              <div>
-                <h4 class="text-lg">District School Board of Niagara</h4>
-              </div>
-            </div>
-            <div class="mt-2 pl-4 border-l border-[color:var(--experience-border-color)] space-y-3">
-              <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
-                <div>
-                  <p class="text-[color:var(--foreground)] opacity-80">Software Engineer</p>
-                </div>
-                <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
-                  >2025 - Present</span
-                >
-              </div>
-              <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
-                <div>
-                  <p class="text-[color:var(--foreground)] opacity-80">Senior Web Developer</p>
-                </div>
-                <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
-                  >2023 - 2025</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
+    <div class="tile-base tile col-span-full md:col-span-6 md:aspect-square xl:col-span-6 xl:row-span-6 xl:aspect-auto experience-section">
+      <div class="p-6 h-full flex flex-col">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wider uppercase text-white w-fit bg-accent">
+          <span class="w-1.5 h-1.5 rounded-full bg-white inline-block" />
+          Experience
+        </span>
+        <h3 class="font-display font-normal text-[26px] mt-2.5 mb-3 tracking-[-0.01em] text-[color:var(--foreground)]">Ten years of shipping.</h3>
+        <div class="flex flex-col gap-2 flex-1 min-h-0">
+          <div v-for="j in jobs" :key="j.role+j.year"
+               class="grid grid-cols-[1fr_auto] gap-3 items-baseline pb-2 border-b border-dashed last:border-0 last:pb-0 transition-[padding] hover:pl-1.5" style="border-color: var(--tw-line);">
             <div>
-              <h4 class="text-lg">Freelance Web Developer</h4>
-              <p class="text-[color:var(--foreground)] opacity-80">
-                Brendon van Zanten
-              </p>
+              <div class="font-medium text-[13.5px] text-[color:var(--foreground)]">{{ j.role }}</div>
+              <div class="text-[12px] opacity-60 mt-px text-[color:var(--foreground)]">{{ j.org }}</div>
             </div>
-            <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
-              >2022 - Present</span
-            >
-          </div>
-
-					<div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
-            <div>
-              <h4 class="text-lg">
-                Greenhouse Operations Technician
-              </h4>
-              <p class="text-[color:var(--foreground)] opacity-80">
-                van Zanten Floral
-              </p>
-            </div>
-            <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
-              >2022 - 2023</span
-            >
-          </div>
-
-          <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-1 lg:gap-0">
-            <div>
-              <h4 class="text-lg">Full Stack Web Developer</h4>
-              <p class="text-[color:var(--foreground)] opacity-80">
-                Symetric Productions
-              </p>
-            </div>
-            <span class="text-[color:var(--foreground)] opacity-80 text-sm lg:text-base"
-              >2015 - 2022</span
-            >
+            <div class="text-[11px] opacity-60 text-[color:var(--foreground)]">{{ j.year }}</div>
           </div>
         </div>
-
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center w-fit bg-[color:var(--element-active-background)] hover:opacity-80 text-[color:var(--element-text-active)] py-2 px-6 rounded-full transition-all duration-200 self-start font-semibold"
-        >
-          View resume
-          <svg
-            class="w-4 h-4 ml-1"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M7 17L17 7M17 7H7M17 7V17"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
       </div>
-    </section>
+    </div>
 
     <!-- Services Section -->
-    <section
-      class="@container/section services-section flex bg-[color:var(--element-background)] flex-col max-xl:order-last col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 p-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-auto md:aspect-square xl:aspect-square"
-    >
-      <div class="p-6 flex flex-1 flex-col gap-4">
-        <div class="mb-6">
-          <span
-            class="bg-[color:var(--color-red)] text-white text-sm font-medium px-4 py-1 rounded-full"
-            >Services</span
-          >
-        </div>
-        <p class="text-pretty w-full max-w-none md:max-w-prose text-base leading-relaxed">
-          I build modern websites and full-stack web applications, including custom WordPress and Webflow solutions, plus ongoing website maintenance and support.
+    <div class="tile-base tile col-span-full md:col-span-6 md:aspect-square xl:col-span-3 xl:row-span-3 xl:aspect-square services-section">
+      <div class="p-6 h-full">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wider uppercase text-white bg-accent">
+          <span class="w-1.5 h-1.5 rounded-full bg-white inline-block" />
+          Services
+        </span>
+        <p class="font-display text-[22px] leading-[1.3] mt-3.5 tracking-[-0.01em] text-[color:var(--foreground)]">
+          Modern sites &amp; full-stack apps — including custom <em class="italic text-accent">WordPress and Webflow</em> solutions, plus ongoing website maintenance and support.
         </p>
       </div>
-    </section>
+    </div>
 
-    <!-- Instagram Section -->
-    <section
-      class="@container/section instagram-section flex bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
-    >
-      <a
-        href="https://www.instagram.com/brendonvz/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex flex-1 items-center justify-center"
-        aria-label="Instagram"
-      >
-        <Icon name="mdi:instagram" size="4rem" class="text-white" />
-      </a>
-    </section>
+    <!-- LinkedIn Section -->
+    <TilesSocialTile kind="linkedin" class="!col-span-full md:!col-span-6 xl:!col-span-3 xl:!row-span-3 xl:!aspect-square" />
 
-    <!-- Contact Section -->
-    <section
-      class="@container/section contact-section flex bg-[#2563eb] flex-col col-span-full md:col-span-6 xl:col-span-3 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square xl:aspect-square"
-    >
-      <a
-        href="mailto:brendon.vanzanten@gmail.com?subject=Hello%20from%20Brendon%20van%20Zanten%20Website"
-        class="flex flex-1 items-center justify-center"
-        aria-label="Email"
-      >
-        <Icon name="mdi:email" size="4rem" class="text-white" />
-      </a>
-    </section>
+    <!-- Stack Tile -->
+    <TilesStackTile />
 
-    <!-- Featured Work Sections -->
+    <!-- Featured Work Row -->
     <section
-      v-for="item in featuredWork"
+      v-for="(item, index) in featuredWork"
       :key="item.slug"
-      class="@container/section featured-work-section flex flex-col col-span-full md:col-span-6 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl section-item aspect-square md:aspect-square"
-      :class="[
-        featuredWork?.length === 2 ? 'xl:col-span-6 xl:aspect-auto' :
-        featuredWork?.length === 3 ? 'xl:col-span-4 xl:row-span-3 xl:aspect-auto' :
-        featuredWork?.length === 4 ? 'xl:col-span-3 xl:row-span-3 xl:aspect-square' :
-        'xl:col-span-3 xl:row-span-3 xl:aspect-auto',
-        item._path?.includes('/work/databall') || item._path?.includes('/work/uniropa-travel')
-          ? 'xl:aspect-[2/1]'
-          : ''
-      ]"
+      class="@container/section tile-base featured-work-section col-span-full md:col-span-6 md:aspect-square xl:aspect-auto xl:col-span-6"
+      :class="{ 'xl:col-start-1': index === 0 }"
       :style="{ backgroundColor: item.logoBg || 'var(--element-background)' }"
     >
       <NuxtLink
         :to="item._path"
-        class="flex flex-1 items-center justify-center p-6"
+        class="flex items-center justify-center w-full h-full min-h-[280px] p-8"
       >
         <img
           v-if="item.logo"
@@ -249,39 +123,40 @@
           :alt="`${item.client || item.title} logo`"
           loading="lazy"
           decoding="async"
-          class="max-w-[60%] max-h-[60%] object-contain"
+          class="max-w-[60%] max-h-[120px] object-contain"
         />
       </NuxtLink>
     </section>
+
+    <!-- Social + Resume Row -->
+    <TilesSocialTile kind="instagram" class="xl:col-start-1 !col-span-full md:!col-span-6 xl:!col-span-3" />
+    <TilesSocialTile kind="email" class="!col-span-full md:!col-span-6 xl:!col-span-3" />
+    <TilesResumeTile />
   </div>
+
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 
-// SEO
+const jobs = [
+  { role: 'Software Engineer',          org: 'District School Board of Niagara', year: '2025 — Now' },
+  { role: 'Senior Web Developer',       org: 'District School Board of Niagara', year: '2023 — 2025' },
+  { role: 'Freelance Web Developer',    org: 'Brendon van Zanten',               year: '2022 — Now' },
+  { role: 'Greenhouse Operations Tech', org: 'van Zanten Floral',                year: '2022 — 2023' },
+  { role: 'Full Stack Web Developer',   org: 'Symetric Productions',             year: '2015 — 2022' },
+]
+
 useSeoMeta({
   title: "Brendon van Zanten | Home",
-  description:
-    "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. View my work and get in touch.",
-  keywords:
-    "web developer, full stack developer, vue.js, nuxt.js, wordpress, webflow, javascript, php, ontario, niagara",
-  author: "Brendon van Zanten",
-  // Open Graph tags for Facebook, LinkedIn, etc.
+  description: "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. View my work and get in touch.",
+  keywords: "web developer, full stack developer, vue.js, nuxt.js, wordpress, webflow, javascript, php, ontario, niagara",
   ogTitle: "Brendon van Zanten - Full Stack Web Developer",
   ogDescription: "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
-  ogImage: "/images/profilepic.jpg",
   ogImageAlt: "Brendon van Zanten - Full Stack Web Developer",
-  ogType: "website",
   ogUrl: "https://brendonvanzanten.com",
-  ogSiteName: "Brendon van Zanten",
-  // Twitter Card tags
-  twitterCard: "summary_large_image",
-  twitterSite: "@brendon_vz",
-  twitterCreator: "@brendon_vz",
   twitterTitle: "Brendon van Zanten - Full Stack Web Developer",
   twitterDescription: "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications.",
-  twitterImage: "/images/profilepic.jpg",
   twitterImageAlt: "Brendon van Zanten - Full Stack Web Developer",
 });
 
@@ -292,39 +167,31 @@ const { data: featuredWork } = await useAsyncData("featured-work", () =>
 const gridContainer = ref(null);
 
 onMounted(async () => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced) {
+    gridContainer.value.style.visibility = 'visible';
+    return;
+  }
+
+  // Safety net: reveal grid if GSAP import stalls on slow connections
+  const fallback = setTimeout(() => {
+    if (gridContainer.value) gridContainer.value.style.visibility = 'visible';
+  }, 1000);
+
   const { gsap } = await import("gsap");
+  clearTimeout(fallback);
 
-  // Make the container visible immediately
-  gsap.set(gridContainer.value, { visibility: "visible" });
-
-  // Custom animation order while keeping HTML layout intact
-  const animationOrder = [
-    ".logo-section",
-    ".about-section",
-    ".profilepic-section",
-    ".linkedin-section",
-    ".services-section",
-    ".experience-section",
-    ".instagram-section",
-    ".contact-section",
-    ".featured-work-section",
-  ];
-
-  animationOrder.forEach((selector, index) => {
-    gsap.fromTo(
-      selector,
-      {
-        opacity: 0,
-        y: 20,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: "back.out(1.2)",
-        delay: 0.05 + index * 0.08,
-      }
-    );
+  const children = Array.from(gridContainer.value.children);
+  gsap.set(children, { opacity: 0, y: 20 });
+  gsap.set(gridContainer.value, { visibility: 'visible' });
+  gsap.to(children, {
+    opacity: 1,
+    y: 0,
+    duration: 0.4,
+    ease: "back.out(1.2)",
+    stagger: 0.08,
+    delay: 0.05,
   });
 });
 </script>

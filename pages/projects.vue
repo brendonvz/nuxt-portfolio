@@ -1,7 +1,5 @@
 <template>
-  <div class="py-12 md:py-16">
-    <h1 class="text-4xl text-center">Projects</h1>
-  </div>
+  <PageHero title="Projects" />
 
   <!-- Show loading state while waiting for the data -->
   <div v-if="pending">Loading...</div>
@@ -10,15 +8,16 @@
   <section
     ref="projectContainer"
     class="w-full grid grid-cols-12 2xl:auto-rows-fr gap-4"
+    style="visibility: hidden;"
     v-if="data?.viewer?.repositories?.nodes"
   >
     <div
       v-for="project in data.viewer.repositories.nodes"
       :key="project.id"
-      class="@container/section flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 ring-1 ring-[color:var(--border-color)] rounded-4xl overflow-hidden section-item"
+      class="@container/section tile-base tile flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 section-item"
     >
       <div class="p-6 flex flex-1 flex-col gap-4">
-        <h2 class="text-2xl mb-2">
+        <h2 class="font-display text-2xl mb-2 text-[color:var(--foreground)]">
           {{ project.name }}
         </h2>
         <p
@@ -30,7 +29,7 @@
         <a
           :href="project.url"
           target="_blank"
-          class="w-fit inline-block bg-[color:var(--element-active-background)] hover:opacity-80 text-[color:var(--element-text-active)] py-2 px-6 rounded-full transition-all duration-200 font-semibold"
+          class="w-fit inline-block bg-[color:var(--element-active-background)] hover:opacity-80 text-[color:var(--element-text-active)] py-2 px-6 rounded-full transition-all duration-200 font-semibold font-sans text-[14px]"
         >
           View on GitHub
         </a>
@@ -45,28 +44,16 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
 
-// SEO
 useSeoMeta({
   title: "Brendon van Zanten | Projects",
-  description:
-    "View my portfolio of web development projects including Vue.js applications, WordPress sites, and custom web solutions.",
-  keywords:
-    "web development projects, vue.js portfolio, github projects, open source",
-  // Open Graph tags for Facebook, LinkedIn, etc.
+  description: "View my portfolio of web development projects including Vue.js applications, WordPress sites, and custom web solutions.",
+  keywords: "web development projects, vue.js portfolio, github projects, open source",
   ogTitle: "Brendon van Zanten - Projects",
   ogDescription: "View my portfolio of web development projects including Vue.js applications, WordPress sites, and custom web solutions.",
-  ogImage: "/images/profilepic.jpg",
   ogImageAlt: "Web Development Projects - Brendon van Zanten",
-  ogType: "website",
   ogUrl: "https://brendonvanzanten.com/projects",
-  ogSiteName: "Brendon van Zanten",
-  // Twitter Card tags
-  twitterCard: "summary_large_image",
-  twitterSite: "@brendon_vz",
-  twitterCreator: "@brendon_vz",
   twitterTitle: "Brendon van Zanten - Projects",
   twitterDescription: "View my portfolio of web development projects including Vue.js applications, WordPress sites, and custom web solutions.",
-  twitterImage: "/images/profilepic.jpg",
   twitterImageAlt: "Web Development Projects - Brendon van Zanten",
 });
 
@@ -109,25 +96,33 @@ const getGsap = async () => {
 };
 
 const animateProjects = async () => {
-  if (projectContainer.value) {
-    const gsap = await getGsap();
+  if (!projectContainer.value) return;
 
-    gsap.fromTo(
-      ".section-item",
-      {
-        opacity: 0,
-        y: 20,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: "back.out(1.2)",
-        stagger: 0.08,
-        delay: 0.05,
-      }
-    );
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced) {
+    projectContainer.value.style.visibility = 'visible';
+    return;
   }
+
+  const fallback = setTimeout(() => {
+    if (projectContainer.value) projectContainer.value.style.visibility = 'visible';
+  }, 1000);
+
+  const gsap = await getGsap();
+  clearTimeout(fallback);
+
+  const children = Array.from(projectContainer.value.children);
+  gsap.set(children, { opacity: 0, y: 20 });
+  gsap.set(projectContainer.value, { visibility: 'visible' });
+  gsap.to(children, {
+    opacity: 1,
+    y: 0,
+    duration: 0.4,
+    ease: "back.out(1.2)",
+    stagger: 0.08,
+    delay: 0.05,
+  });
 };
 
 onMounted(() => {

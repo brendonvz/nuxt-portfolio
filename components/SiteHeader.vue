@@ -1,34 +1,57 @@
 <template>
-  <nav class="flex justify-center mt-4">
-    <div
-      ref="navContainer"
-      class="flex space-x-2 bg-[color:var(--element-background)] rounded-full p-2 shadow-lg relative"
+  <div class="flex items-center justify-between mb-14">
+    <!-- Logo + Name on left -->
+    <NuxtLink
+      to="/"
+      class="inline-flex items-center gap-3 text-[15px] tracking-wide no-underline group text-[color:var(--foreground)]"
     >
-      <!-- Sliding bubble background -->
-      <div
-        v-if="activeIndex !== -1"
-        class="nav-active-pill absolute top-2 bottom-2 bg-[color:var(--element-active-background)] rounded-full transition-all duration-300 ease-out"
-        :class="`nav-active-pill-${activeIndex}`"
-        :style="{
-          '--bubble-left': `${bubblePosition}px`,
-          '--bubble-width': `${bubbleWidth}px`,
-        }"
-      ></div>
+      <LogoMark
+        class="w-7 h-7 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110 text-[color:var(--foreground)]"
+      />
+      <span class="hidden sm:inline font-medium font-sans">brendon van zanten</span>
+    </NuxtLink>
 
-      <NuxtLink
-        v-for="(item, index) in navigation"
-        :key="item.name"
-        :to="item.href"
-        class="nav-link px-4 py-2 rounded-full transition-all duration-300 font-medium text-[color:var(--element-text)] relative z-10"
-        :class="[
-          `nav-link-${index}`,
-          item.current ? 'nav-link-active text-[color:var(--element-text-active)]' : '',
-        ]"
+    <!-- Center nav (your existing nav) -->
+    <nav class="flex justify-center" aria-label="Main navigation">
+      <div
+        ref="navContainer"
+        class="flex space-x-2 bg-[color:var(--element-background)] rounded-full p-2 shadow-lg relative"
       >
-        {{ item.name }}
-      </NuxtLink>
-    </div>
-  </nav>
+        <!-- Sliding bubble background -->
+        <div
+          v-if="activeIndex !== -1"
+          class="nav-active-pill absolute top-2 bottom-2 bg-[color:var(--color-alt-bg)] rounded-full transition-all duration-300 ease-out"
+          :class="`nav-active-pill-${activeIndex}`"
+          :style="{
+            '--bubble-left': `${bubblePosition}px`,
+            '--bubble-width': `${bubbleWidth}px`,
+          }"
+        ></div>
+
+        <NuxtLink
+          v-for="(item, index) in navigation"
+          :key="item.name"
+          :to="item.href"
+          class="nav-link px-4 py-2 rounded-full transition-all duration-300 font-medium relative z-10 font-sans text-[14px]"
+          :class="[
+            `nav-link-${index}`,
+            item.current ? 'nav-link-active text-[color:var(--color-alt-text)]' : 'text-[color:var(--foreground)]',
+          ]"
+        >
+          {{ item.name }}
+        </NuxtLink>
+      </div>
+    </nav>
+
+    <!-- Available for work button on right -->
+    <a
+      href="mailto:brendon.vanzanten@gmail.com"
+      class="available-work-btn hidden md:inline-flex items-center gap-2 px-4 py-2 bg-[color:var(--color-alt-bg)] text-[color:var(--color-alt-text)] rounded-full font-medium no-underline transition-all duration-300 font-sans text-[14px]"
+    >
+      <span class="w-2 h-2 rounded-full bg-[#F4C95D] pulse-dot" aria-hidden="true" />
+      <span>Available for work</span>
+    </a>
+  </div>
 </template>
 
 <script setup>
@@ -89,6 +112,10 @@ watch(() => route.fullPath, async () => {
 </script>
 
 <style scoped>
+.available-work-btn:hover {
+  background-color: var(--color-hover);
+}
+
 .nav-active-pill {
   left: var(--bubble-left);
   width: var(--bubble-width);
