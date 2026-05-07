@@ -22,7 +22,7 @@
       <!-- Main Logo Section -->
       <section
         v-if="data.logo"
-        class="@container/section tile-base client-logo-section flex flex-col gap-2 section-item aspect-square"
+        class="@container/section tile-base client-logo-section flex flex-col gap-2 section-item aspect-[4/3] md:aspect-square"
         :style="{ backgroundColor: data.logoBg || 'var(--element-background)' }"
       >
         <div class="flex flex-1 items-center justify-center p-6">
@@ -39,7 +39,7 @@
       <!-- Goodwell Logo Section -->
       <section
         v-if="data.goodwell"
-        class="@container/section tile-base goodwell-logo-section flex flex-col gap-2 section-item aspect-square"
+        class="@container/section tile-base goodwell-logo-section flex flex-col gap-2 section-item aspect-[4/3] md:aspect-square"
         :style="{ backgroundColor: data.goodwellBg || '#ECE9E1' }"
       >
         <a
@@ -61,7 +61,7 @@
       <!-- Studio Mined Logo Section -->
       <section
         v-if="data.studioMined"
-        class="@container/section tile-base studio-mined-logo-section flex flex-col gap-2 section-item aspect-square"
+        class="@container/section tile-base studio-mined-logo-section flex flex-col gap-2 section-item aspect-[4/3] md:aspect-square"
         :style="{ backgroundColor: data.studioMinedBg || '#edd710' }"
       >
         <a
