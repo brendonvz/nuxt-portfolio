@@ -11,7 +11,7 @@ const props = defineProps(["work"]);
   >
     <div
       v-if="item.logo"
-      class="flex items-center justify-center p-8 md:p-10 aspect-[4/3]"
+      class="flex items-center justify-center p-8 md:p-10 min-h-56"
       :style="{ backgroundColor: item.logoBg || 'var(--element-background)' }"
     >
       <img
