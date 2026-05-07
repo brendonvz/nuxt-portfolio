@@ -14,22 +14,72 @@
     ref="gridContainer"
     class="w-full grid grid-cols-12 gap-4 grid-container"
   >
-    <!-- Main Logo Section -->
-    <section
-      v-if="data.logo"
-      class="@container/section tile-base client-logo-section flex flex-col gap-2 section-item aspect-[4/3] md:aspect-square col-span-full md:col-span-6 xl:col-span-3"
-      :style="{ backgroundColor: data.logoBg || 'var(--element-background)' }"
+    <!-- Logo Section Container (left column on md+) -->
+    <div
+      v-if="data.logo || data.goodwell || data.studioMined"
+      class="col-span-full md:col-span-6 xl:col-span-3 flex flex-col gap-4"
     >
-      <div class="flex flex-1 items-center justify-center p-6">
-        <img
-          :src="`/images/work/${data.logo}`"
-          :alt="`${data.client || data.title} logo`"
-          loading="eager"
-          decoding="async"
-          class="max-w-[60%] max-h-[60%] object-contain"
-        />
-      </div>
-    </section>
+      <!-- Main Logo -->
+      <section
+        v-if="data.logo"
+        class="@container/section tile-base client-logo-section flex flex-col gap-2 section-item aspect-[4/3] md:aspect-square"
+        :style="{ backgroundColor: data.logoBg || 'var(--element-background)' }"
+      >
+        <div class="flex flex-1 items-center justify-center p-6">
+          <img
+            :src="`/images/work/${data.logo}`"
+            :alt="`${data.client || data.title} logo`"
+            loading="eager"
+            decoding="async"
+            class="max-w-[60%] max-h-[60%] object-contain"
+          />
+        </div>
+      </section>
+
+      <!-- Goodwell Logo — desktop only; mobile version appears after writeup -->
+      <section
+        v-if="data.goodwell"
+        class="@container/section tile-base goodwell-logo-section hidden md:flex flex-col gap-2 section-item aspect-square"
+        :style="{ backgroundColor: data.goodwellBg || '#ECE9E1' }"
+      >
+        <a
+          href="https://goodwellstudio.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex flex-1 items-center justify-center p-6"
+        >
+          <img
+            src="/images/work/goodwell-logo.png"
+            alt="Goodwell Studio logo"
+            loading="lazy"
+            decoding="async"
+            class="max-w-[80%] max-h-[80%] object-contain"
+          />
+        </a>
+      </section>
+
+      <!-- Studio Mined Logo — desktop only; mobile version appears after writeup -->
+      <section
+        v-if="data.studioMined"
+        class="@container/section tile-base studio-mined-logo-section hidden md:flex flex-col gap-2 section-item aspect-square"
+        :style="{ backgroundColor: data.studioMinedBg || '#edd710' }"
+      >
+        <a
+          href="https://studiomined.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex flex-1 items-center justify-center p-6"
+        >
+          <img
+            src="/images/work/studio-mined-logo.jpg"
+            alt="Studio Mined logo"
+            loading="lazy"
+            decoding="async"
+            class="max-w-[80%] max-h-[80%] object-contain"
+          />
+        </a>
+      </section>
+    </div>
 
     <!-- Writeup and Screenshot Container -->
     <div
@@ -93,10 +143,10 @@
       </section>
     </div>
 
-    <!-- Goodwell Logo Section (after writeup — bottom on mobile, left column on md+) -->
+    <!-- Goodwell Logo — mobile only; desktop version is inside the left column container above -->
     <section
       v-if="data.goodwell"
-      class="@container/section tile-base goodwell-logo-section flex flex-col gap-2 section-item aspect-[4/3] md:aspect-square col-span-full md:col-span-6 md:col-start-1 xl:col-span-3 xl:col-start-1"
+      class="@container/section tile-base goodwell-logo-section md:hidden flex flex-col gap-2 section-item aspect-[4/3] col-span-full"
       :style="{ backgroundColor: data.goodwellBg || '#ECE9E1' }"
     >
       <a
@@ -115,10 +165,10 @@
       </a>
     </section>
 
-    <!-- Studio Mined Logo Section (after writeup — bottom on mobile, left column on md+) -->
+    <!-- Studio Mined Logo — mobile only; desktop version is inside the left column container above -->
     <section
       v-if="data.studioMined"
-      class="@container/section tile-base studio-mined-logo-section flex flex-col gap-2 section-item aspect-[4/3] md:aspect-square col-span-full md:col-span-6 md:col-start-1 xl:col-span-3 xl:col-start-1"
+      class="@container/section tile-base studio-mined-logo-section md:hidden flex flex-col gap-2 section-item aspect-[4/3] col-span-full"
       :style="{ backgroundColor: data.studioMinedBg || '#edd710' }"
     >
       <a
