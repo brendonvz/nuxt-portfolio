@@ -1,7 +1,8 @@
 <template>
-  <div class="flex items-center justify-between mb-14">
-    <!-- Logo + Name on left -->
+  <div class="flex justify-center md:grid md:grid-cols-[auto_1fr_auto] items-center mb-14">
+    <!-- Logo + Name on left (desktop only) -->
     <NuxtLink
+      v-if="!isMobile"
       to="/"
       class="inline-flex items-center gap-3 text-[15px] tracking-wide no-underline group text-[color:var(--foreground)]"
     >
@@ -11,8 +12,8 @@
       <span class="hidden sm:inline font-medium font-sans">brendon van zanten</span>
     </NuxtLink>
 
-    <!-- Center nav (your existing nav) -->
-    <nav class="flex justify-center" aria-label="Main navigation">
+    <!-- Center nav -->
+    <nav class="flex w-full md:w-auto justify-center" aria-label="Main navigation">
       <div
         ref="navContainer"
         class="flex space-x-2 bg-[color:var(--element-background)] rounded-full p-2 shadow-lg relative"
@@ -43,10 +44,11 @@
       </div>
     </nav>
 
-    <!-- Available for work button on right -->
+    <!-- Available for work button on right (desktop only) -->
     <a
+      v-if="!isMobile"
       href="mailto:brendon.vanzanten@gmail.com"
-      class="available-work-btn hidden md:inline-flex items-center gap-2 px-4 py-2 bg-[color:var(--color-alt-bg)] text-[color:var(--color-alt-text)] rounded-full font-medium no-underline transition-all duration-300 font-sans text-[14px]"
+      class="available-work-btn inline-flex items-center gap-2 px-4 py-2 bg-[color:var(--color-alt-bg)] text-[color:var(--color-alt-text)] rounded-full font-medium no-underline transition-all duration-300 font-sans text-[14px]"
     >
       <span class="w-2 h-2 rounded-full bg-[#F4C95D] pulse-dot" aria-hidden="true" />
       <span>Available for work</span>
@@ -56,6 +58,9 @@
 
 <script setup>
 import { computed, ref, onMounted, onBeforeUnmount, watch, nextTick } from "vue";
+
+const isMobile = ref(false);
+const checkMobile = () => { isMobile.value = window.innerWidth < 768; };
 import { useRoute } from "vue-router";
 
 const route = useRoute();
@@ -92,6 +97,8 @@ const scheduleBubblePositionUpdate = () => {
 };
 
 onMounted(async () => {
+  checkMobile();
+  window.addEventListener("resize", checkMobile);
   await nextTick();
   if (activeIndex.value !== -1) {
     scheduleBubblePositionUpdate();
@@ -100,6 +107,7 @@ onMounted(async () => {
 });
 
 onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkMobile);
   window.removeEventListener("resize", updateBubblePosition);
 });
 

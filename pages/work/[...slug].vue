@@ -168,28 +168,37 @@ useSeoMeta({
     data.value?.client
       ? `${data.value.client}, client work, web development`
       : "client work, web development, portfolio",
+  ogImage: () => data.value?.screenshot ? `/images/work/${data.value.screenshot}` : undefined,
+  twitterImage: () => data.value?.screenshot ? `/images/work/${data.value.screenshot}` : undefined,
 });
 
 const gridContainer = ref(null);
 
 onMounted(async () => {
-  const { gsap } = await import("gsap");
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Animate the sections
-  gsap.fromTo(
-    ".section-item",
-    {
-      opacity: 0,
-      y: 20,
-    },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.4,
-      ease: "back.out(1.2)",
-      stagger: 0.08,
-      delay: 0.05,
-    }
-  );
+  if (prefersReduced) {
+    gridContainer.value.classList.add('is-ready');
+    return;
+  }
+
+  const fallback = setTimeout(() => {
+    if (gridContainer.value) gridContainer.value.style.visibility = 'visible';
+  }, 1000);
+
+  const { gsap } = await import("gsap");
+  clearTimeout(fallback);
+
+  const children = Array.from(gridContainer.value.querySelectorAll('.section-item'));
+  gsap.set(children, { opacity: 0, y: 20 });
+  gridContainer.value.classList.add('is-ready');
+  gsap.to(children, {
+    opacity: 1,
+    y: 0,
+    duration: 0.4,
+    ease: "back.out(1.2)",
+    stagger: 0.08,
+    delay: 0.05,
+  });
 });
 </script>

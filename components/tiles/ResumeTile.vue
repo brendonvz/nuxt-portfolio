@@ -3,7 +3,8 @@
   <a
     href="/resume.pdf"
     target="_blank"
-    class="tile-base tile resume-section col-span-full xl:col-span-6 xl:row-span-2 flex items-center justify-between px-7 py-6 cursor-pointer group"
+    rel="noopener noreferrer"
+    class="tile-base tile resume-section col-span-full md:aspect-[4/1] xl:col-span-6 xl:row-span-2 xl:aspect-auto flex items-center justify-between px-7 py-6 cursor-pointer group"
   >
     <div class="flex-1 min-w-0">
       <div class="font-mono text-[11px] tracking-[0.1em] uppercase text-[color:var(--foreground)] opacity-60">Resume · PDF · 2 pages</div>

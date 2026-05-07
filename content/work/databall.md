@@ -9,6 +9,7 @@ website:
 studioMined: true
 screenshot: databall-screenshot-1.jpg
 tag: 'Webflow'
+lightOnDark: true
 featured: true
 ---
 

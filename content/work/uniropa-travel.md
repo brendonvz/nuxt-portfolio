@@ -9,6 +9,7 @@ website: https://www.uniropatravel.com/
 goodwell: true
 screenshot: uniropa-screenshot-1.jpg
 tag: 'Wordpress'
+lightOnDark: false
 featured: true
 ---
 

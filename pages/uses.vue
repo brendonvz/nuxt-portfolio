@@ -3,8 +3,7 @@
 
   <div
     ref="usesContainer"
-    class="w-full grid grid-cols-12 2xl:auto-rows-fr gap-4"
-    style="visibility: hidden;"
+    class="w-full grid grid-cols-12 2xl:auto-rows-fr gap-4 grid-container"
   >
     <div
       class="@container/section tile-base tile flex bg-[color:var(--element-background)] flex-col col-span-full md:col-span-6 xl:row-span-3 gap-2 p-6 section-item"
@@ -89,12 +88,12 @@ onMounted(async () => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (prefersReduced) {
-    usesContainer.value.style.visibility = 'visible';
+    usesContainer.value.classList.add('is-ready');
     return;
   }
 
   const fallback = setTimeout(() => {
-    if (usesContainer.value) usesContainer.value.style.visibility = 'visible';
+    if (usesContainer.value) usesContainer.value.classList.add('is-ready');
   }, 1000);
 
   const { gsap } = await import("gsap");
@@ -102,7 +101,7 @@ onMounted(async () => {
 
   const children = Array.from(usesContainer.value.children);
   gsap.set(children, { opacity: 0, y: 20 });
-  gsap.set(usesContainer.value, { visibility: 'visible' });
+  usesContainer.value.classList.add('is-ready');
   gsap.to(children, {
     opacity: 1,
     y: 0,

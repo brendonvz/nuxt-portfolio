@@ -49,11 +49,6 @@
     animation: none;
   }
 }
-@keyframes drawLogo {
-  0%   { stroke-dashoffset: 6400; fill-opacity: 0; }
-  65%  { stroke-dashoffset: 0;    fill-opacity: 0; }
-  100% { stroke-dashoffset: 0;    fill-opacity: 1; }
-}
 @keyframes wiggle {
   0%   { transform: rotate(0) scale(1); }
   25%  { transform: rotate(-6deg) scale(1.04); }
@@ -74,15 +69,17 @@
   transform: translateY(0.4em);
   animation: letterIn 0.7s cubic-bezier(.2,.8,.2,1) forwards;
 }
-.tile-logo-path {
-  stroke-dasharray: 6400;
-  stroke-dashoffset: 6400;
-  fill-opacity: 0;
-  animation: drawLogo 2.6s cubic-bezier(.7,0,.3,1) 0.3s forwards;
-}
 .wiggle-on-hover:hover svg { animation: wiggle 0.9s cubic-bezier(.2,.8,.2,1); }
 .pulse-dot { animation: pulse 2.4s ease-out infinite; }
 .marquee-track { animation: scroll 26s linear infinite; }
+
+/* Grid containers start hidden; JS adds .is-ready to reveal */
+.grid-container {
+  visibility: hidden;
+}
+.grid-container.is-ready {
+  visibility: visible;
+}
 
 /* Structural base — every grid tile */
 .tile-base {
@@ -443,17 +440,31 @@ body {
 	.grid-container > * {
 		min-height: 220px;
 	}
+	.about-section {
+		order: 1;
+	}
 	.profilepic-section {
 		min-height: 0;
 		order: 2;
 	}
-	.experience-section {
+	.available-strip-section {
+		min-height: 0;
 		order: 3;
 	}
-	.services-section {
+	.experience-section {
 		order: 4;
 	}
-	.linkedin-section {
+	.services-section {
 		order: 5;
+	}
+	.stack-section {
+		min-height: 0;
+		order: 6;
+	}
+	.linkedin-section {
+		order: 8;
+	}
+	.instagram-section {
+		order: 9;
 	}
 }

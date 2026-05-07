@@ -7,8 +7,11 @@ interface GitHubResponse {
           id: string;
           name: string;
           createdAt: string;
+          pushedAt: string;
           description: string | null;
           url: string;
+          stargazerCount: number;
+          primaryLanguage: { name: string; color: string } | null;
           readme: {
             text: string;
           } | null;
@@ -52,8 +55,11 @@ export default defineEventHandler(async (event) => {
             id
             name
             createdAt
+            pushedAt
             description
             url
+            stargazerCount
+            primaryLanguage { name color }
             readme: object(expression: "HEAD:README.md") {
               ... on Blob {
                 text
@@ -115,8 +121,11 @@ export default defineEventHandler(async (event) => {
                   id: repo.id,
                   name: repo.name,
                   createdAt: repo.createdAt,
+                  pushedAt: repo.pushedAt,
                   description,
-                  url: repo.url
+                  url: repo.url,
+                  stargazerCount: repo.stargazerCount,
+                  primaryLanguage: repo.primaryLanguage,
                 };
               }
 
@@ -158,8 +167,11 @@ export default defineEventHandler(async (event) => {
               id: repo.id,
               name: repo.name,
               createdAt: repo.createdAt,
+              pushedAt: repo.pushedAt,
               description: description?.trim() || null,
-              url: repo.url
+              url: repo.url,
+              stargazerCount: repo.stargazerCount,
+              primaryLanguage: repo.primaryLanguage,
             };
           })
         }

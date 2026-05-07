@@ -14,7 +14,6 @@
   <div
     ref="gridContainer"
     class="@container w-full grid grid-cols-12 gap-4 grid-container"
-    style="visibility: hidden;"
   >
     <!-- Logo Section -->
     <section
@@ -36,7 +35,7 @@
             <span class="w-1.5 h-1.5 rounded-full bg-white inline-block" />
             About
           </span>
-          <p class="font-display text-[22px] leading-[1.3] mt-3 tracking-[-0.01em] text-[color:var(--foreground)]">
+          <p class="font-display text-[20px] leading-[1.4] mt-3 tracking-[-0.01em] text-[color:var(--foreground)]">
             Software Engineer based in <em class="italic text-accent">Niagara, Ontario</em>, shipping full-stack applications since 2015. I enjoy building dynamic front ends with Vue &amp; Nuxt, and reliable back ends with Node, PHP and .NET.
           </p>
         </div>
@@ -65,6 +64,28 @@
     </section>
 
 
+    <!-- Available for Work Strip (mobile only) -->
+    <a
+      href="mailto:brendon.vanzanten@gmail.com"
+      class="available-strip-section md:hidden tile-base tile col-span-full flex items-center justify-between px-7 py-6 cursor-pointer group no-underline"
+    >
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#F4C95D] pulse-dot shrink-0" aria-hidden="true" />
+          <span class="font-mono text-[11px] tracking-[0.12em] uppercase opacity-60 text-[color:var(--foreground)]">Available for work</span>
+        </div>
+        <p class="font-display text-[26px] leading-[1.2] text-[color:var(--foreground)]">Let's build something <em class="italic text-accent">great</em>.</p>
+      </div>
+      <div
+        class="w-12 h-12 shrink-0 ml-6 rounded-full flex items-center justify-center text-white transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+        style="background-color: var(--color-accent);"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+        </svg>
+      </div>
+    </a>
+
     <!-- Experience Section -->
     <div class="tile-base tile col-span-full md:col-span-6 md:aspect-square xl:col-span-6 xl:row-span-6 xl:aspect-auto experience-section">
       <div class="p-6 h-full flex flex-col">
@@ -72,10 +93,10 @@
           <span class="w-1.5 h-1.5 rounded-full bg-white inline-block" />
           Experience
         </span>
-        <h3 class="font-display font-normal text-[26px] mt-2.5 mb-3 tracking-[-0.01em] text-[color:var(--foreground)]">Ten years of shipping.</h3>
+        <h3 class="font-display font-normal text-[32px] mt-5 mb-5 tracking-[-0.02em] leading-[1.1] text-[color:var(--foreground)]">Ten years of shipping.</h3>
         <div class="flex flex-col gap-2 flex-1 min-h-0">
           <div v-for="j in jobs" :key="j.role+j.year"
-               class="grid grid-cols-[1fr_auto] gap-3 items-baseline pb-2 border-b border-dashed last:border-0 last:pb-0 transition-[padding] hover:pl-1.5" style="border-color: var(--tw-line);">
+               class="grid grid-cols-[1fr_auto] gap-3 items-baseline pb-2 border-b border-dashed last:border-0 last:pb-0 transition-transform hover:translate-x-1.5" style="border-color: var(--tw-line);">
             <div>
               <div class="font-medium text-[13.5px] text-[color:var(--foreground)]">{{ j.role }}</div>
               <div class="text-[12px] opacity-60 mt-px text-[color:var(--foreground)]">{{ j.org }}</div>
@@ -88,14 +109,16 @@
 
     <!-- Services Section -->
     <div class="tile-base tile col-span-full md:col-span-6 md:aspect-square xl:col-span-3 xl:row-span-3 xl:aspect-square services-section">
-      <div class="p-6 h-full">
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wider uppercase text-white bg-accent">
-          <span class="w-1.5 h-1.5 rounded-full bg-white inline-block" />
-          Services
-        </span>
-        <p class="font-display text-[22px] leading-[1.3] mt-3.5 tracking-[-0.01em] text-[color:var(--foreground)]">
-          Modern sites &amp; full-stack apps — including custom <em class="italic text-accent">WordPress and Webflow</em> solutions, plus ongoing website maintenance and support.
-        </p>
+      <div class="p-6 h-full flex items-center">
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wider uppercase text-white bg-accent">
+            <span class="w-1.5 h-1.5 rounded-full bg-white inline-block" />
+            Services
+          </span>
+          <p class="font-display text-[20px] leading-[1.4] mt-3.5 tracking-[-0.01em] text-[color:var(--foreground)]">
+            Modern sites &amp; full-stack apps, custom <em class="italic text-accent">Webflow &amp; WordPress</em> builds alongside great designers — and ongoing care to keep everything fast.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -109,13 +132,13 @@
     <section
       v-for="(item, index) in featuredWork"
       :key="item.slug"
-      class="@container/section tile-base featured-work-section col-span-full md:col-span-6 md:aspect-square xl:aspect-auto xl:col-span-6"
+      class="@container/section tile-base featured-work-section col-span-full md:col-span-6 md:aspect-square xl:col-span-6 xl:aspect-[2/1]"
       :class="{ 'xl:col-start-1': index === 0 }"
       :style="{ backgroundColor: item.logoBg || 'var(--element-background)' }"
     >
       <NuxtLink
         :to="item._path"
-        class="flex items-center justify-center w-full h-full min-h-[280px] p-8"
+        class="relative flex items-center justify-center w-full h-full p-8 pb-16"
       >
         <img
           v-if="item.logo"
@@ -125,6 +148,17 @@
           decoding="async"
           class="max-w-[60%] max-h-[120px] object-contain"
         />
+        <div
+          class="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
+          :class="item.lightOnDark ? 'bg-gradient-to-t from-black/25 to-transparent' : 'bg-gradient-to-t from-black/10 to-transparent'"
+        />
+        <div class="absolute inset-x-6 bottom-6 flex items-end justify-between">
+          <div>
+            <div class="font-display text-xl" :style="{ color: item.lightOnDark ? '#ffffff' : '#1B2332' }">{{ item.client }}</div>
+            <div class="font-mono text-[11px] uppercase tracking-wider" :style="{ color: item.lightOnDark ? 'rgba(255,255,255,0.7)' : 'rgba(27,35,50,0.7)' }">{{ item.tag }}</div>
+          </div>
+          <div class="font-mono text-[11px]" :style="{ color: item.lightOnDark ? 'rgba(255,255,255,0.7)' : 'rgba(27,35,50,0.7)' }">Client Work</div>
+        </div>
       </NuxtLink>
     </section>
 
@@ -149,15 +183,18 @@ const jobs = [
 
 useSeoMeta({
   title: "Brendon van Zanten | Home",
-  description: "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. View my work and get in touch.",
+  description: "Full Stack Web Developer with 10+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. View my work and get in touch.",
   keywords: "web developer, full stack developer, vue.js, nuxt.js, wordpress, webflow, javascript, php, ontario, niagara",
   ogTitle: "Brendon van Zanten - Full Stack Web Developer",
-  ogDescription: "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
+  ogDescription: "Full Stack Web Developer with 10+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
+  ogImage: "https://brendonvanzanten.com/images/og-card.jpg",
   ogImageAlt: "Brendon van Zanten - Full Stack Web Developer",
   ogUrl: "https://brendonvanzanten.com",
   twitterTitle: "Brendon van Zanten - Full Stack Web Developer",
-  twitterDescription: "Full Stack Web Developer with 8+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications.",
+  twitterDescription: "Full Stack Web Developer with 10+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications.",
+  twitterImage: "https://brendonvanzanten.com/images/og-card.jpg",
   twitterImageAlt: "Brendon van Zanten - Full Stack Web Developer",
+  twitterCard: "summary_large_image",
 });
 
 const { data: featuredWork } = await useAsyncData("featured-work", () =>
@@ -170,13 +207,13 @@ onMounted(async () => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (prefersReduced) {
-    gridContainer.value.style.visibility = 'visible';
+    gridContainer.value.classList.add('is-ready');
     return;
   }
 
   // Safety net: reveal grid if GSAP import stalls on slow connections
   const fallback = setTimeout(() => {
-    if (gridContainer.value) gridContainer.value.style.visibility = 'visible';
+    if (gridContainer.value) gridContainer.value.classList.add('is-ready');
   }, 1000);
 
   const { gsap } = await import("gsap");
@@ -184,7 +221,7 @@ onMounted(async () => {
 
   const children = Array.from(gridContainer.value.children);
   gsap.set(children, { opacity: 0, y: 20 });
-  gsap.set(gridContainer.value, { visibility: 'visible' });
+  gridContainer.value.classList.add('is-ready');
   gsap.to(children, {
     opacity: 1,
     y: 0,
@@ -193,5 +230,14 @@ onMounted(async () => {
     stagger: 0.08,
     delay: 0.05,
   });
+
+  // Logo mark springs in after its tile has faded in (~0.45s)
+  const logoMark = gridContainer.value.querySelector('.logo-mark');
+  if (logoMark) {
+    gsap.fromTo(logoMark,
+      { scale: 0.65, transformOrigin: '50% 50%' },
+      { scale: 1, duration: 1, ease: 'back.out(2.2)', delay: 0.45 }
+    );
+  }
 });
 </script>
