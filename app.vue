@@ -40,11 +40,11 @@ useSeoMeta({
   author: "Brendon van Zanten",
   ogSiteName: "Brendon van Zanten",
   ogType: "website",
-  ogImage: "/images/profilepic.jpg",
+  ogImage: "https://brendonvanzanten.com/images/og-card.jpg",
   twitterCard: "summary_large_image",
   twitterSite: "@brendon_vz",
   twitterCreator: "@brendon_vz",
-  twitterImage: "/images/profilepic.jpg",
+  twitterImage: "https://brendonvanzanten.com/images/og-card.jpg",
 });
 
 // Load external resources with low render impact
