@@ -204,7 +204,7 @@ if (!data.value) {
 
 // SEO
 useSeoMeta({
-  title: () => `Brendon van Zanten | ${data.value?.title}`,
+  title: () => `Brendon van Zanten - ${data.value?.title}`,
   description: () =>
     data.value?.description ||
     `Learn about "${data.value?.title}" - a client project by Brendon van Zanten.`,

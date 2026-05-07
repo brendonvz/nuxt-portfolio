@@ -54,7 +54,7 @@ export default defineNuxtConfig({
 	site: {
 		url: "https://brendonvanzanten.com",
 		name: "Brendon van Zanten",
-		description: "Full Stack Web Developer specializing in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
+		description: "Software Engineer specializing in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
 		defaultLocale: "en",
 	},
 
@@ -64,7 +64,7 @@ export default defineNuxtConfig({
 
 	app: {
 		head: {
-			title: "Brendon van Zanten - Full Stack Web Developer",
+			title: "Brendon van Zanten - Software Engineer",
 			titleTemplate: "%s",
 			link: [
 				{ rel: "icon", href: "/favicon/favicon.ico?v=3" },

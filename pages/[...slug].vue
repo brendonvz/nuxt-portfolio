@@ -17,7 +17,7 @@
 
 <script setup>
 useSeoMeta({
-  title: 'Page not found — Brendon van Zanten',
+  title: 'Brendon van Zanten - Page Not Found',
   robots: 'noindex',
 })
 </script>

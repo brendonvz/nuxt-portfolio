@@ -72,7 +72,7 @@ import { ref, onMounted } from "vue";
 const usesContainer = ref(null);
 
 useSeoMeta({
-  title: "Brendon van Zanten | Uses",
+  title: "Brendon van Zanten - Uses",
   description: "Tools, software, and hardware I use for web development. My development setup, favorite VS Code extensions, and productivity tools.",
   keywords: "developer tools, vs code setup, web development tools, productivity setup",
   ogTitle: "Brendon van Zanten - Uses",
