@@ -183,8 +183,8 @@ const jobs = [
 
 useSeoMeta({
   title: "Brendon van Zanten | Home",
-  description: "Full Stack Web Developer with 10+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. View my work and get in touch.",
-  keywords: "web developer, full stack developer, vue.js, nuxt.js, wordpress, webflow, javascript, php, ontario, niagara",
+  description: "Software Engineer with 10+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. View my work and get in touch.",
+  keywords: "software engineer, web developer, vue.js, nuxt.js, wordpress, webflow, javascript, php, ontario, niagara",
   ogTitle: "Brendon van Zanten - Software Engineer",
   ogDescription: "Software Engineer with 10+ years of experience in Vue.js, Nuxt.js, WordPress, and modern web applications. Based in Niagara, Ontario.",
   ogImage: "https://brendonvanzanten.com/images/og-card.jpg",
