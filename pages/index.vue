@@ -36,7 +36,7 @@
             About
           </span>
           <p class="font-display text-[20px] leading-[1.4] mt-3 tracking-[-0.01em] text-[color:var(--foreground)]">
-            Software Engineer based in <em class="italic text-accent">Niagara, Ontario</em>, shipping full-stack applications since 2015. I enjoy building dynamic front ends with Vue &amp; Nuxt, and reliable back ends with Node, PHP and .NET.
+            Software Engineer based in <em class="italic text-accent">Niagara, Ontario</em>, shipping full-stack applications since 2015. I enjoy building dynamic front ends with Vue &amp; Nuxt, and reliable back ends with Node and .NET.
           </p>
         </div>
         <span class="absolute right-5 -bottom-1 font-display italic text-[130px] leading-none pointer-events-none transition-transform duration-700 group-hover:-rotate-12 opacity-[0.08] text-accent">&amp;</span>
