@@ -39,7 +39,7 @@
 import { ref, onMounted, watch } from "vue";
 
 useSeoMeta({
-  title: "Brendon van Zanten | Projects",
+  title: "Brendon van Zanten - Projects",
   description: "View my portfolio of web development projects including Vue.js applications, WordPress sites, and custom web solutions.",
   keywords: "web development projects, vue.js portfolio, github projects, open source",
   ogTitle: "Brendon van Zanten - Projects",
